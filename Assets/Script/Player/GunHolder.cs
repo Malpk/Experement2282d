@@ -3,7 +3,8 @@ using UnityEngine;
 public class GunHolder : MonoBehaviour
 {
     [SerializeField] private Gun _gun;
-
+    [SerializeField] private Gun[] _guns;
+    
     public void Shoot()
     {
         _gun.Shoot();
