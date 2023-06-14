@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Gun : MonoBehaviour
 {
@@ -11,55 +10,61 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _spreadDistance;
     [SerializeField] private float _timeReload;
     [SerializeField] private float _shootDelay;
-    [Header("Events")]
-    [SerializeField] private UnityEvent<int, int> OnUpdateGunInfo;
+    [Header("Hand")]
+    [SerializeField] private Transform _rightHandPoint;
+    [SerializeField] private Transform _leftHandPoint;
     [Header("Reference")]
     [SerializeField] private Pool _projectile;
     [SerializeField] private Sprite _gunIcon;
     [SerializeField] private GunSound _sound;
     [SerializeField] private Transform _shootPoint;
 
-    private int _curretAmmo = 50;
-    private int _currteMagazine;
+    private bool _isReadyShoot  = true;
     private float _progress = 0f;
 
     private System.Action State;
 
-    public bool IsReadyShoot { get; private set; } = true;
+    public event System.Action OnReload;
+
+    public int CurretAmmo { get; private set; } = 50;
+    public int CurrteMagazine { get; private set; }
     public GunType GunType => _gunType;
     public Sprite Icon => _gunIcon;
+    public Transform RightHandPoint => _rightHandPoint;
+    public Transform LeftHandPoint => _leftHandPoint; 
+
 
     private void Awake()
     {
         enabled = false;
-        _currteMagazine = _magazinSize;
-        _curretAmmo = _maxAmmo;
-        UpdateGunInfo();
+        CurrteMagazine = _magazinSize;
+        CurretAmmo = _maxAmmo;
     }
 
-    public void Shoot()
+    public bool Shoot()
     {
-        if (IsReadyShoot)
+        if (_isReadyShoot)
         {
-            if (_currteMagazine > 0)
+            if (CurrteMagazine > 0)
             {
-                _currteMagazine--;
+                CurrteMagazine--;
                 var bullet = _projectile.Create().GetComponent<Projectile>();
                 bullet.transform.position = _shootPoint.position;
                 bullet.transform.right = GetDiraction();
                 bullet.Play();
                 _sound.Shoot();
-                UpdateGunInfo();
             }
             else
             {
                 _sound.EmptyMagazine();
             }
             Play(ShootDealyState);
+            return true;
         }
+        return false;
     }
 
-    public void Relaod()
+    public void Reload()
     {
         _sound.Reload();
         Play(ReloadState);
@@ -67,9 +72,9 @@ public class Gun : MonoBehaviour
 
     public bool AddAmmo(int ammo)
     {
-        if (_curretAmmo < _maxAmmo)
+        if (CurretAmmo < _maxAmmo)
         {
-            _curretAmmo = Mathf.Clamp(_curretAmmo + ammo, _curretAmmo, _maxAmmo);
+            CurretAmmo = Mathf.Clamp(CurretAmmo + ammo, CurretAmmo, _maxAmmo);
             return true;
         }
         return false;
@@ -83,7 +88,7 @@ public class Gun : MonoBehaviour
     {
         _progress = 0f;
         enabled = true;
-        IsReadyShoot = false;
+        _isReadyShoot = false;
         State = state;
     }
 
@@ -93,7 +98,7 @@ public class Gun : MonoBehaviour
         if(_progress >= 1)
         {
             enabled = false;
-            IsReadyShoot = true;
+            _isReadyShoot = true;
         }
     }
 
@@ -103,25 +108,20 @@ public class Gun : MonoBehaviour
         if (_progress >= 1)
         {
             enabled = false;
-            IsReadyShoot = true;
-            _curretAmmo += _currteMagazine;
-            if (_curretAmmo > _magazinSize)
+            _isReadyShoot = true;
+            CurretAmmo += CurrteMagazine;
+            if (CurretAmmo > _magazinSize)
             {
-                _currteMagazine = _magazinSize;
-                _curretAmmo -= _magazinSize;
+                CurrteMagazine = _magazinSize;
+                CurretAmmo -= _magazinSize;
             }
             else
             {
-                _currteMagazine = _curretAmmo;
-                _curretAmmo = 0;
+                CurrteMagazine = CurretAmmo;
+                CurretAmmo = 0;
             }
-            UpdateGunInfo();
+            OnReload?.Invoke();
         }
-    }
-
-    private void UpdateGunInfo()
-    {
-        OnUpdateGunInfo?.Invoke(_currteMagazine, _curretAmmo);
     }
 
     private Vector2 GetDiraction()

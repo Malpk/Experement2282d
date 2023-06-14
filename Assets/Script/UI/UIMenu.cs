@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class UIMenu : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onShow;
+    [SerializeField] private UnityEvent _onHide;
 
     public bool IsShow => gameObject.activeSelf;
 
@@ -12,6 +13,7 @@ public class UIMenu : MonoBehaviour
         if (gameObject.activeSelf)
         {
             gameObject.SetActive(false);
+            _onHide.Invoke();
         }
         else
         {
