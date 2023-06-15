@@ -3,132 +3,65 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private GunType _gunType;
-    [SerializeField] private int _maxAmmo;
-    [SerializeField] private int _magazinSize;
-    [Header("ShootSetting")]
-    [SerializeField] private float _spread;
-    [SerializeField] private float _spreadDistance;
-    [SerializeField] private float _timeReload;
-    [SerializeField] private float _shootDelay;
     [Header("Hand")]
     [SerializeField] private Transform _rightHandPoint;
     [SerializeField] private Transform _leftHandPoint;
     [Header("Reference")]
-    [SerializeField] private Pool _projectile;
     [SerializeField] private Sprite _gunIcon;
     [SerializeField] private GunSound _sound;
-    [SerializeField] private Transform _shootPoint;
+    [SerializeField] private GunMagazine _magazine;
+    [SerializeField] private ShootPoint _shootPoint;
 
-    private bool _isReadyShoot  = true;
-    private float _progress = 0f;
+    private bool _pressGun = false;
 
-    private System.Action State;
-
-    public event System.Action OnReload;
-
-    public int CurretAmmo { get; private set; } = 50;
-    public int CurrteMagazine { get; private set; }
     public GunType GunType => _gunType;
     public Sprite Icon => _gunIcon;
+    public GunMagazine Magazine => _magazine;
     public Transform RightHandPoint => _rightHandPoint;
     public Transform LeftHandPoint => _leftHandPoint; 
 
 
-    private void Awake()
-    {
-        enabled = false;
-        CurrteMagazine = _magazinSize;
-        CurretAmmo = _maxAmmo;
-    }
 
-    public bool Shoot()
+    public bool Shoot(bool input)
     {
-        if (_isReadyShoot)
+        if (_magazine.CurrteMagazine > 0)
         {
-            if (CurrteMagazine > 0)
+            if (_shootPoint.Shoot(input))
             {
-                CurrteMagazine--;
-                var bullet = _projectile.Create().GetComponent<Projectile>();
-                bullet.transform.position = _shootPoint.position;
-                bullet.transform.right = GetDiraction();
-                bullet.Play();
+                _magazine.CurrteMagazine--;
                 _sound.Shoot();
+                return true;
             }
-            else
+        }
+        else if (input)
+        {
+            if (!_pressGun)
             {
                 _sound.EmptyMagazine();
+                _pressGun = true;
             }
-            Play(ShootDealyState);
-            return true;
+        }
+        else
+        {
+            _pressGun = false;
         }
         return false;
     }
 
-    public void Reload()
+    public void Reload(bool input, System.Action actin)
     {
-        _sound.Reload();
-        Play(ReloadState);
+        if (input)
+        {
+            if (!_magazine.Reload(actin))
+            {
+                _sound.Reload();
+            }
+        }
     }
 
     public bool AddAmmo(int ammo)
     {
-        if (CurretAmmo < _maxAmmo)
-        {
-            CurretAmmo = Mathf.Clamp(CurretAmmo + ammo, CurretAmmo, _maxAmmo);
-            return true;
-        }
-        return false;
-    }
-
-    private void Update()
-    {
-        State();
-    }
-    private void Play(System.Action state)
-    {
-        _progress = 0f;
-        enabled = true;
-        _isReadyShoot = false;
-        State = state;
-    }
-
-    private void ShootDealyState()
-    {
-        _progress += Time.deltaTime / _shootDelay;
-        if(_progress >= 1)
-        {
-            enabled = false;
-            _isReadyShoot = true;
-        }
-    }
-
-    private void ReloadState()
-    {
-        _progress += Time.deltaTime / _timeReload;
-        if (_progress >= 1)
-        {
-            enabled = false;
-            _isReadyShoot = true;
-            CurretAmmo += CurrteMagazine;
-            if (CurretAmmo > _magazinSize)
-            {
-                CurrteMagazine = _magazinSize;
-                CurretAmmo -= _magazinSize;
-            }
-            else
-            {
-                CurrteMagazine = CurretAmmo;
-                CurretAmmo = 0;
-            }
-            OnReload?.Invoke();
-        }
-    }
-
-    private Vector2 GetDiraction()
-    {
-        var right = _shootPoint.right * _spreadDistance;
-        var up = _shootPoint.up * Random.Range(-_spread, _spread);
-        return right + up;
+        return _magazine.AddAmmo(ammo);
     }
 
 }

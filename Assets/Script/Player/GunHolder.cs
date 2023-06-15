@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.U2D.IK;
 
 public class GunHolder : MonoBehaviour
 {
@@ -13,33 +11,24 @@ public class GunHolder : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private GunInfo _uiInfo;
     [SerializeField] private UIMenu _gunMenu;
+    [SerializeField] private GunHolderDirection _holderDirection;
 
     public Gun[] Guns => _guns;
+
     private void Start()
     {
         SetGun(_gun);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _gunMenu.SwitchState();
-        }
-    }
-
     public void SetGun(Gun gun)
     {
         if (_gun)
-        {
-            _gun.OnReload -= UpdateGunInfo;
             _gun.gameObject.SetActive(false);
-        }
-        gun.OnReload += UpdateGunInfo;
         gun.gameObject.SetActive(true);
         GrabGun(gun);
         _gun = gun;
         _uiInfo.SetIcon(gun.Icon);
+        _holderDirection.SetGun(gun);
         UpdateGunInfo();
     }
 
@@ -51,41 +40,34 @@ public class GunHolder : MonoBehaviour
         _leftHand.localPosition = Vector3.zero;
     }
 
-    public void Shoot()
+    public void SwitchGunMenu(bool input)
+    {
+        if (input)
+            _gunMenu.SwitchState();
+    }
+
+    public bool Shoot(bool input)
     {
         if (!_gunMenu.IsShow)
         {
-            if (_gun.Shoot())
+            if (_gun.Shoot(input))
+            {
                 UpdateGunInfo();
+                return true;
+            }
         }
+        return false;
     }
 
-    public void Reload()
+    public void Reload(bool input)
     {
         if(!_gunMenu.IsShow)
-            _gun.Reload();
+            _gun.Reload(input, UpdateGunInfo);
     }
-
-    public void SetDirectionShoot(Vector2 mousePosition)
-    {
-        transform.right = mousePosition;
-        _gun.transform.right = mousePosition;
-        Flip(mousePosition);
-        Debug.DrawLine(transform.position, transform.position + transform.right * 20, Color.red);
-        Debug.DrawLine(transform.position, transform.position + _gun.transform.right * 20, Color.green);
-    }
-
-    private void Flip(Vector2 direction)
-    {
-        var flip = direction.x > 0 ? 1 : -1;
-        var y = Mathf.Abs(_gun.transform.localScale.y) * flip;
-        _gun.transform.localScale = new Vector3(_gun.transform.localScale.x, y, _gun.transform.localScale.z);
-    }
-
 
     private void UpdateGunInfo()
     {
-        _uiInfo.UpdateText(_gun.CurrteMagazine, _gun.CurretAmmo);
+        _uiInfo.UpdateText(_gun.Magazine.CurrteMagazine, _gun.Magazine.CurretAmmo);
     }
 
 }

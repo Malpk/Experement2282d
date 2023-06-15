@@ -377,6 +377,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7699537471131631142}
   - component: {fileID: 3365556552644942589}
+  - component: {fileID: 488329189701729306}
+  - component: {fileID: 7945558071360281110}
   m_Layer: 0
   m_Name: Ak-47
   m_TagString: Untagged
@@ -418,15 +420,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 1
-  _maxAmmo: 300
-  _magazinSize: 30
-  _spread: 4
-  _spreadDistance: 20
-  _timeReload: 2
-  _shootDelay: 0.1
   _rightHandPoint: {fileID: 1883425946}
   _leftHandPoint: {fileID: 368067839}
-  _projectile: {fileID: 7357866118898402327}
   _gunIcon: {fileID: 21300000, guid: 99d45756b44cb604eb58409adf182502, type: 3}
   _sound: {fileID: 1670157814647083263}
+  _magazine: {fileID: 7945558071360281110}
+  _shootPoint: {fileID: 488329189701729306}
+--- !u!114 &488329189701729306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873501503133957239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ce3b831e8d9c840a1e4581fe0cc885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootDelay: 0.2
+  _spread: 2
+  _spreadDelta: 0.2
+  _spreadReduceDelta: 0.2
+  _spreadDistance: 20
+  _projectile: {fileID: 7357866118898402327}
   _shootPoint: {fileID: 913155182033635016}
+--- !u!114 &7945558071360281110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873501503133957239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616ffb73eaecb854985f410ba9fa5b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxAmmo: 300
+  _magazinSize: 30
+  _timeReload: 2

@@ -346,6 +346,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8577761889805419008}
   - component: {fileID: 3703313142852593371}
+  - component: {fileID: 3959155869174429310}
+  - component: {fileID: 7087691854522433224}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -386,15 +388,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 0
-  _maxAmmo: 0
-  _magazinSize: 0
-  _spread: 2
-  _spreadDistance: 20
-  _timeReload: 2
-  _shootDelay: 0.2
   _rightHandPoint: {fileID: 8383322328944456126}
   _leftHandPoint: {fileID: 8383322328944456126}
-  _projectile: {fileID: 8920628333607270449}
   _gunIcon: {fileID: 21300000, guid: 7f2aa785f19853a408ee819c9ed9e0fb, type: 3}
   _sound: {fileID: 791934082496965849}
-  _shootPoint: {fileID: 2499498675000305471}
+  _magazine: {fileID: 7087691854522433224}
+  _shootPoint: {fileID: 3959155869174429310}
+--- !u!114 &3959155869174429310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499680246487957585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ce3b831e8d9c840a1e4581fe0cc885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootDelay: 0.4
+  _spread: 4
+  _spreadDelta: 0.2
+  _spreadReduceDelta: 0.2
+  _spreadDistance: 20
+  _projectile: {fileID: 8920628333607270449}
+  _shootPoint: {fileID: 1259945458693602030}
+--- !u!114 &7087691854522433224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499680246487957585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616ffb73eaecb854985f410ba9fa5b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxAmmo: 96
+  _magazinSize: 12
+  _timeReload: 2
