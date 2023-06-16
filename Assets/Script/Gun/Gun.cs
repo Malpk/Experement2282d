@@ -18,12 +18,11 @@ public class Gun : MonoBehaviour
     public Sprite Icon => _gunIcon;
     public GunMagazine Magazine => _magazine;
     public Transform RightHandPoint => _rightHandPoint;
-    public Transform LeftHandPoint => _leftHandPoint; 
-
-
+    public Transform LeftHandPoint => _leftHandPoint;
 
     public bool Shoot(bool input)
     {
+        input = input && !_magazine.IsReload;
         if (_magazine.CurrteMagazine > 0)
         {
             if (_shootPoint.Shoot(input))
@@ -52,7 +51,7 @@ public class Gun : MonoBehaviour
     {
         if (input)
         {
-            if (!_magazine.Reload(actin))
+            if (_magazine.Reload(actin))
             {
                 _sound.Reload();
             }

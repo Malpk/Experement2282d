@@ -20,6 +20,15 @@ public class GunMagazine : MonoBehaviour
         CurretAmmo = _maxAmmo;
     }
 
+    private void OnEnable()
+    {
+        if (IsReload)
+        {
+            IsReload = false;
+            enabled = false;
+        }
+    }
+
     private void Update()
     {
         _progress += Time.deltaTime / _timeReload;
@@ -47,9 +56,9 @@ public class GunMagazine : MonoBehaviour
     {
         if (!IsReload)
         {
+            _progress = 0f;
             enabled = true;
             IsReload = true;
-            _progress = 0f;
             _reloadAction = actin;
             return true;
         }
