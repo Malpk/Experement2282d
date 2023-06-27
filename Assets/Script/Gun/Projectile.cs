@@ -17,6 +17,23 @@ public class Projectile : MonoBehaviour
         enabled = false;
     }
 
+
+    private void FixedUpdate()
+    {
+        var move = transform.right * _speed * Time.fixedDeltaTime;
+        _rigidbody.MovePosition(transform.position + move);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out IDamage target))
+        {
+            target.TakeDamage(_damage, transform);
+            Stop();
+            _poolItem.Delete();
+        }
+    }
+
     public void Play()
     {
         if (_coroutine != null)
@@ -31,16 +48,11 @@ public class Projectile : MonoBehaviour
         enabled = false;
     }
 
-    private void FixedUpdate()
-    {
-        var move = transform.right * _speed * Time.fixedDeltaTime;
-        _rigidbody.MovePosition(transform.position + move);
-    }
-
     private IEnumerator Delete(float timeDestroy)
     {
         yield return new WaitForSeconds(timeDestroy);
         _poolItem.Delete();
+        enabled = false;
     }
 
 }
