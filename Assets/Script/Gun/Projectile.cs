@@ -28,9 +28,11 @@ public class Projectile : MonoBehaviour
     {
         if (collision.TryGetComponent(out IDamage target))
         {
-            target.TakeDamage(_damage, transform);
-            Stop();
-            _poolItem.Delete();
+            if (target.TakeDamage(_damage, transform))
+            {
+                Stop();
+                _poolItem.Delete();
+            }
         }
     }
 

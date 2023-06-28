@@ -24,13 +24,20 @@ public class Player : MonoBehaviour, IDamage
     }
     public void Kill()
     {
-        throw new System.NotImplementedException();
+        
     }
 
-    public void TakeDamage(int damage, Transform projectile)
+    public bool TakeDamage(int damage, Transform projectile)
     {
-        _curretHealth = Mathf.Clamp(_curretHealth - damage, 0, _curretHealth);
-        UpdateHealth();
+        if (_curretHealth > 0)
+        {
+            _curretHealth = Mathf.Clamp(_curretHealth - damage, 0, _curretHealth);
+            if (_curretHealth == 0)
+                Kill();
+            UpdateHealth();
+            return true;
+        }
+        return false;
     }
 
     private void UpdateHealth()
