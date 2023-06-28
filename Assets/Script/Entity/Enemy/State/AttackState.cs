@@ -5,7 +5,7 @@ public class AttackState : EnemyState
     [SerializeField] private EnemyAttackStats _attackStats;
     [Header("Reference")]
     [SerializeField] private EnemyDetect _detect;
-    [SerializeField] private EnemyAnimator _animator;
+    [SerializeField] private EntityAnimator _animator;
 
     private Vector2 _target => _detect.Target.transform.position;
 

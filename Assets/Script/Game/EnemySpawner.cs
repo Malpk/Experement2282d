@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private int _maxEnemy;
     [SerializeField] private float _countSecond;
     [SerializeField] private Vector2 _spawnDistance;
     [Header("Reference")]
@@ -37,6 +38,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (enabled)
         {
+            yield return new WaitWhile(() => _reward.CountEnemy >= _maxEnemy);
             var enemy = Spawn();
             enemy.Reset();
             enemy.SetTarget(_target);

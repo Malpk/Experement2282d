@@ -4,12 +4,12 @@ using TMPro;
 public class Wallet : MonoBehaviour
 {
     [SerializeField] private int _money;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextNumUI _text;
 
     private void OnValidate()
     {
         if (_text)
-            _text.text = _money.ToString();
+            _text.SetValue(_money);
     }
 
     public void TakeMoney(int money)
@@ -31,6 +31,6 @@ public class Wallet : MonoBehaviour
 
     private void UpdateUI()
     {
-        _text.text = _money.ToString();
+        _text.UpdateText(_money);
     }
 }

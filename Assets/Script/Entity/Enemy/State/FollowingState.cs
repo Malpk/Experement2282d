@@ -7,7 +7,7 @@ public class FollowingState : EnemyState
     [Header("Reference")]
     [SerializeField] private EnemyDetect _detect;
     [SerializeField] private Rigidbody2D _rigidBody;
-    [SerializeField] private EnemyAnimator _animator;
+    [SerializeField] private EntityAnimator _animator;
 
     private float _speedDelta;
     private Vector2 _target => _detect.Target.transform.position;

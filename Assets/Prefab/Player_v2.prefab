@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &482072150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482072151}
+  - component: {fileID: 482072152}
+  m_Layer: 7
+  m_Name: Wallet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482072151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482072150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6008922214466165308}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482072152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482072150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b396f70a7ddf84f94d2d65f416e625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _money: 100
+  _text: {fileID: 0}
 --- !u!1 &5642344589046753572
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +272,7 @@ Transform:
   - {fileID: 6008922214380149164}
   - {fileID: 6008922213995368199}
   - {fileID: 8591598716457309395}
+  - {fileID: 482072151}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -245,6 +292,7 @@ MonoBehaviour:
   _hudCamera: {fileID: 0}
   _target: {fileID: 0}
   _controller: {fileID: 5496430312226312801}
+  _animator: {fileID: 6188344267164540561}
 --- !u!114 &5496430312226312801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e59c0e6c5f392c948a317468eb017876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedMovement: 2
+  _speedMovement: 2.5
   _animator: {fileID: 3262151167454505874}
   _rigidBody: {fileID: 6008922214466165311}
 --- !u!50 &6008922214466165311
@@ -905,6 +953,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6188344267164540561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359617750065442769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79a8b47e07c20d4a9f4237a7fb26e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3262151167454505874}
 --- !u!4 &3492279841532688306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: f3d1e934de0651f40a7b47b08056e71d, type: 3}

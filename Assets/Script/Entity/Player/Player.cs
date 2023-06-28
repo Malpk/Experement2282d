@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, IDamage
     [Header("Reference")]
     [SerializeField] private Camera _hudCamera;
     [SerializeField] private Transform _target;
+    [SerializeField] private EntityAnimator _animator;
     [SerializeField] private GameController _controller;
 
     private float _curretHealth = 0f;
@@ -24,7 +25,8 @@ public class Player : MonoBehaviour, IDamage
     }
     public void Kill()
     {
-        
+        enabled = false;
+        _animator.Dead();
     }
 
     public bool TakeDamage(int damage, Transform projectile)

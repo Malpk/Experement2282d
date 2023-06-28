@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour, IDamage
     [SerializeField] private Enemy _enemy;
     [SerializeField] private DecalBody _decal;
     [SerializeField] private Collider2D _collider;
-    [SerializeField] private EnemyAnimator _animator;
+    [SerializeField] private EntityAnimator _animator;
 
     private int _currethelth = 0;
 
@@ -20,7 +20,6 @@ public class EnemyHealth : MonoBehaviour, IDamage
 
     public void Kill()
     {
-        _enemy.Dead();
         _collider.isTrigger = true;
         _animator.Dead();
         _enemy.enabled = false;
