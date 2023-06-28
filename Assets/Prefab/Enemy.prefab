@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2764229756088465412}
-  - component: {fileID: 4229619735380198239}
+  - component: {fileID: 646963392626108608}
   - component: {fileID: 2764229756088465413}
   - component: {fileID: 2785414745722536707}
   - component: {fileID: 2764229756088465414}
@@ -146,7 +146,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4229619735380198239
+--- !u!114 &646963392626108608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbca6748ab4ec544884f99c239692876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 3
   _enemy: {fileID: 2764229756088465413}
   _decal: {fileID: 493229945}
   _collider: {fileID: 2469999640684343390}
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f08c4143ad53604da86b9d654e5ccd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _curretState: {fileID: 9197614747798093042}
+  _startState: 2
   _states:
   - {fileID: 9197614747798093042}
   - {fileID: 3286312611019512568}

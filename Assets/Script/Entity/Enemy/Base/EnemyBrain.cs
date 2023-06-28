@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class EnemyBrain : MonoBehaviour
 {
-    [SerializeField] private EnemyState _curretState;
+    [SerializeField] private StateType _startState;
     [SerializeField] private EnemyState[] _states;
+    
+    private EnemyState _curretState;
 
     private void OnEnable()
     {
@@ -21,9 +23,9 @@ public class EnemyBrain : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Reset()
     {
-        _curretState.Reset();
+        SwitchState(_startState);
     }
 
     public void UpdateState()

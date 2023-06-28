@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour, IDamage
 
     public void Kill()
     {
+        _enemy.Dead();
         _collider.isTrigger = true;
         _animator.Dead();
         _enemy.enabled = false;

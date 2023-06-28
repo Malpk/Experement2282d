@@ -7,16 +7,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyBrain _brain;
     [SerializeField] private EnemyHealth _health;
 
-    public event System.Action OnDead;
+    public event System.Action<Enemy> OnDead;
+
+    public bool IsDead { get; private set; } = false;
 
     public void Reset()
     {
+        IsDead = false;
         _health.Reset();
-    }
-
-    private void Start()
-    {
-        Reset();
+        _brain.Reset();
     }
 
     private void FixedUpdate()
@@ -26,7 +25,8 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
-        OnDead?.Invoke();
+        IsDead = true;
+        OnDead?.Invoke(this);
     }
 
     public void SetTarget(Player target)

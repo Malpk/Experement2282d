@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -9,22 +8,21 @@ public class EnemySpawner : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private Pool _enemyPool;
     [SerializeField] private Player _target;
+    [SerializeField] private KillReward _reward;
+    [SerializeField] private PoolCleaner _clener;
 
     private float _delay = 1f;
     private Coroutine _corotine;
-    private List<PoolItem> _activeEnemy = new List<PoolItem>();
+
+    private void Reset()
+    {
+        _enemyPool.Reset();
+        _clener.Clear();
+    }
 
     private void OnValidate()
     {
         _delay = 1f / _countSecond;
-    }
-
-    public void Reset()
-    {
-        foreach (var enemy in _activeEnemy)
-        {
-            enemy.Delete();
-        }
     }
 
     public void Start()
@@ -40,18 +38,26 @@ public class EnemySpawner : MonoBehaviour
         while (enabled)
         {
             var enemy = Spawn();
+            enemy.Reset();
             enemy.SetTarget(_target);
+            _reward.AddEnemy(enemy);
             yield return new WaitForSeconds(_delay);
         }
     }
 
     private Enemy Spawn()
     {
-        var enemy = _enemyPool.Create();
-        enemy.OnDelete += Delete;
-        SetPosition(enemy.transform);
-        _activeEnemy.Add(enemy);
-        return enemy.GetComponent<Enemy>();
+        var item = _enemyPool.Create();
+        SetPosition(item.transform);
+        var enemy = item.GetComponent<Enemy>();
+        enemy.OnDead += (Enemy e) => KillEnemy(e, item);
+        return enemy;
+    }
+
+    private void KillEnemy(Enemy enemy, PoolItem item)
+    {
+        _clener.AddItem(item);
+        enemy.OnDead -= (Enemy e) => KillEnemy(e, item);
     }
 
     private void SetPosition(Transform enemy)
@@ -60,11 +66,6 @@ public class EnemySpawner : MonoBehaviour
         var angel = Random.Range(0f, 360f) / Mathf.Deg2Rad;
         var position = new Vector2(Mathf.Cos(angel), Mathf.Sin(angel)) * distance;
         enemy.position = (Vector2)_target.transform.position + position;
-    }
-
-    private void Delete(PoolItem enemy)
-    {
-        _activeEnemy.Remove(enemy);
     }
 
 }

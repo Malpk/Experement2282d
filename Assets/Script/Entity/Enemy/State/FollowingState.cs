@@ -15,12 +15,8 @@ public class FollowingState : EnemyState
 
     public override void Reset()
     {
-        _animator.Move();
-    }
-
-    private void Start()
-    {
         _speedDelta = Random.Range(_speedRange.x, _speedRange.y);
+        _animator.Move();
     }
 
     public override void UpdateState()

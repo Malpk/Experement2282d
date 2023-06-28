@@ -7,6 +7,17 @@ public class Pool : MonoBehaviour
 
     private List<PoolItem> _pools = new List<PoolItem>();
 
+    private List<PoolItem> _createItem = new List<PoolItem>();
+
+    public void Reset()
+    {
+        foreach (var item in _createItem)
+        {
+            item.Delete();
+        }
+        _createItem.Clear();
+    }
+
     public void AddItem(PoolItem item)
     {
         item.OnDelete += Return;
@@ -16,6 +27,7 @@ public class Pool : MonoBehaviour
     {
         var item = Instatiate(transform);
         item.OnDelete += Return;
+        _createItem.Add(item);
         return item;
     }
 
@@ -38,5 +50,6 @@ public class Pool : MonoBehaviour
         pool.transform.parent = transform;
         pool.transform.localPosition = Vector3.zero;
         _pools.Add(pool);
+        _createItem.Remove(pool);
     }
 }
