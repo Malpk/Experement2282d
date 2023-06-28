@@ -10,13 +10,12 @@ public class FollowingState : EnemyState
     [SerializeField] private EnemyAnimator _animator;
 
     private float _speedDelta;
-    private Player _target;
+    private Vector2 _target => _detect.Target.transform.position;
 
 
     public override void Reset()
     {
         _animator.Move();
-        _target = _detect.Target;
     }
 
     private void Start()
@@ -26,16 +25,16 @@ public class FollowingState : EnemyState
 
     public override void UpdateState()
     {
-        if (Vector2.Distance(_rigidBody.position, _target.transform.position) > _attackStats.Distance)
+        if (Vector2.Distance(_rigidBody.position, _target) > _attackStats.Distance)
         {
-            var direction = _target.transform.position.x - _rigidBody.position.x;
+            var direction = _target.x - _rigidBody.position.x;
             if (direction != 0)
             {
                 var scale = transform.localScale;
                 scale.x = (direction > 0 ? 1 : -1) * Mathf.Abs(scale.x);
                 _rigidBody.transform.localScale = scale;
             }
-            var move = Vector2.MoveTowards(_rigidBody.position, _target.transform.position, 
+            var move = Vector2.MoveTowards(_rigidBody.position, _target, 
                 _speedDelta * Time.fixedDeltaTime);
             _rigidBody.MovePosition(move);
         }
@@ -44,6 +43,4 @@ public class FollowingState : EnemyState
             CompliteState(StateType.Attack);
         }
     }
-
-
 }

@@ -7,12 +7,11 @@ public class AttackState : EnemyState
     [SerializeField] private EnemyDetect _detect;
     [SerializeField] private EnemyAnimator _animator;
 
-    private Player _target;
+    private Vector2 _target => _detect.Target.transform.position;
 
     public override void Reset()
     {
         _animator.Attack();
-        _target = _detect.Target;
     }
 
     private void OnEnable()
@@ -27,7 +26,7 @@ public class AttackState : EnemyState
 
     public override void UpdateState()
     {
-        if (Vector2.Distance(transform.position, _target.transform.position) > _attackStats.Distance)
+        if (Vector2.Distance(transform.position, _target) > _attackStats.Distance)
         {
             CompliteState(StateType.Following);
         }
@@ -35,7 +34,8 @@ public class AttackState : EnemyState
 
     private void Attack()
     {
-        _target.TakeDamage(_attackStats.Damage, null);
+        _detect.Target.
+            TakeDamage(_attackStats.Damage, null);
     }
 
 }
