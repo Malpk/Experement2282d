@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private float _delay = 1f;
     private Coroutine _corotine;
 
-    private void Reset()
+    public void Reset()
     {
         _enemyPool.Reset();
         _clener.Clear();
@@ -28,11 +28,23 @@ public class EnemySpawner : MonoBehaviour
 
     public void Start()
     {
+        Play();
+    }
+
+    public void Play()
+    {
+        enabled = true;
         _delay = 1f / _countSecond;
         if (_corotine == null)
             _corotine = StartCoroutine(SpawnEnemy());
     }
 
+    public void Stop()
+    {
+        enabled = false;
+        StopCoroutine(_corotine);
+        _corotine = null;
+    }
 
     private IEnumerator SpawnEnemy()
     {

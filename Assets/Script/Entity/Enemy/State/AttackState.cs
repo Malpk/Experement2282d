@@ -26,7 +26,8 @@ public class AttackState : EnemyState
 
     public override void UpdateState()
     {
-        if (Vector2.Distance(transform.position, _target) > _attackStats.Distance)
+        var distance = Vector2.Distance(transform.position, _target);
+        if (distance > _attackStats.Distance || _detect.Target.IsDead)
         {
             CompliteState(StateType.Following);
         }

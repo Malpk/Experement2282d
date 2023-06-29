@@ -15,6 +15,16 @@ public class GunHolder : MonoBehaviour
 
     public Gun[] Guns => _guns;
 
+    public void Reset()
+    {
+        foreach (var gun in _guns)
+        {
+            if(gun)
+                gun.Reset();
+        }
+        UpdateGunInfo();
+    }
+
     private void Start()
     {
         SetGun(_gun);

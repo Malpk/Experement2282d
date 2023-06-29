@@ -16,27 +16,39 @@ public class FollowingState : EnemyState
     public override void Reset()
     {
         _speedDelta = Random.Range(_speedRange.x, _speedRange.y);
-        _animator.Move();
     }
 
     public override void UpdateState()
     {
-        if (Vector2.Distance(_rigidBody.position, _target) > _attackStats.Distance)
+        if (!_detect.Target.IsDead)
         {
-            var direction = _target.x - _rigidBody.position.x;
-            if (direction != 0)
+            if (Vector2.Distance(_rigidBody.position, _target) > _attackStats.Distance)
             {
-                var scale = transform.localScale;
-                scale.x = (direction > 0 ? 1 : -1) * Mathf.Abs(scale.x);
-                _rigidBody.transform.localScale = scale;
+                _animator.Move();
+                Following();
             }
-            var move = Vector2.MoveTowards(_rigidBody.position, _target, 
-                _speedDelta * Time.fixedDeltaTime);
-            _rigidBody.MovePosition(move);
+            else
+            {
+                CompliteState(StateType.Attack);
+            }
         }
         else
         {
-            CompliteState(StateType.Attack);
+            _animator.Move(false);
         }
+    }
+
+    private void Following()
+    {
+        var direction = _target.x - _rigidBody.position.x;
+        if (direction != 0)
+        {
+            var scale = transform.localScale;
+            scale.x = (direction > 0 ? 1 : -1) * Mathf.Abs(scale.x);
+            _rigidBody.transform.localScale = scale;
+        }
+        var move = Vector2.MoveTowards(_rigidBody.position, _target,
+            _speedDelta * Time.fixedDeltaTime);
+        _rigidBody.MovePosition(move);
     }
 }

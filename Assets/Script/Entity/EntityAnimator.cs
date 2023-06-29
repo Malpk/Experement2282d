@@ -20,15 +20,15 @@ public class EntityAnimator : MonoBehaviour
         PlayAnimation("attack");
     }
 
-    public void Dead()
+    public void Dead(bool value = true)
     {
-        PlayAnimation("dead");
+        PlayAnimation("dead", value);
     }
 
     private void PlayAnimation(string next, bool value = true)
     {
         _animator.SetBool(next, value);
-        if (value)
+        if(_curret != next)
         {
             _animator.SetBool(_curret, false);
             _curret = next;

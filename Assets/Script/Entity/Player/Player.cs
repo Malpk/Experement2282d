@@ -14,18 +14,21 @@ public class Player : MonoBehaviour, IDamage
 
     public event System.Action<float> OnChageHealth;
 
+    public bool IsDead { get; private set; }
+
     public void Reset()
     {
         _curretHealth = _height;
         enabled = true;
         _controller.enabled = true;
+        _animator.Dead(false);
+        IsDead = false;
     }
 
     private void Start()
     {
         Reset();
     }
-
 
     private void Update()
     {
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour, IDamage
         enabled = false;
         _controller.enabled = false;
         _animator.Dead();
+        IsDead = true;
     }
 
     public bool TakeDamage(int damage, Transform projectile)

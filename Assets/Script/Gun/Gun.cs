@@ -20,6 +20,11 @@ public class Gun : MonoBehaviour
     public Transform RightHandPoint => _rightHandPoint;
     public Transform LeftHandPoint => _leftHandPoint;
 
+    public void Reset()
+    {
+        _magazine.Reset();
+    }
+
     public bool Shoot(bool input)
     {
         input = input && !_magazine.IsReload;

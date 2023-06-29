@@ -11,11 +11,12 @@ public class Pool : MonoBehaviour
 
     public void Reset()
     {
-        foreach (var item in _createItem)
+        while (_createItem.Count > 0)
         {
+            var item = _createItem[0];
+            Return(item);
             item.Delete();
         }
-        _createItem.Clear();
     }
 
     public void AddItem(PoolItem item)

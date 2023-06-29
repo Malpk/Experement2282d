@@ -2,25 +2,21 @@ using UnityEngine;
 
 public class GameSwitcher : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private EnemySpawner _spawner;
+    [SerializeField] private PlayerSwitcher _palyer;
     [SerializeField] private InterfaceSwitcher _interface;
-
-    private Vector3 _startPosition;
-
-    private void Start()
-    {
-        _startPosition = _player.transform.position;
-    }
 
     public void RestartGame()
     {
-        _player.Reset();
-        _player.transform.position = _startPosition;
+        _spawner.Reset();
+        _spawner.Play();
+        _palyer.Reset();
         _interface.SwitchMenu(MenuType.HUD);
     }
 
     public void CompliteGame()
     {
+        _spawner.Stop();
         _interface.SwitchMenu(MenuType.DeadMenu);
     }
 

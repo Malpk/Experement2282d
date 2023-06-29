@@ -15,6 +15,11 @@ public class GunMagazine : MonoBehaviour
 
     private void Awake()
     {
+        Reset();
+    }
+
+    public void Reset()
+    {
         enabled = false;
         CurrteMagazine = _magazinSize;
         CurretAmmo = _maxAmmo;

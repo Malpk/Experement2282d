@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class Wallet : MonoBehaviour
 {
@@ -10,6 +9,12 @@ public class Wallet : MonoBehaviour
     {
         if (_text)
             _text.SetValue(_money);
+    }
+
+    public void SetRegress(float regress)
+    {
+        _money = (int)(_money / regress);
+        _text.SetValue(_money);
     }
 
     public void TakeMoney(int money)
@@ -23,7 +28,7 @@ public class Wallet : MonoBehaviour
         if (_money >= money)
         {
             _money -= money;
-            UpdateUI();
+            _text.SetValue(_money);
             return true;
         }
         return false;
