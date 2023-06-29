@@ -14,6 +14,7 @@ public class GameSwitcher : MonoBehaviour
 
     public void RestartGame()
     {
+        _player.Reset();
         _player.transform.position = _startPosition;
         _interface.SwitchMenu(MenuType.HUD);
     }

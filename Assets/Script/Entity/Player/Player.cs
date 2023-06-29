@@ -3,9 +3,10 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamage
 {
     [SerializeField] private int _height = 5;
-    [Header("Reference")]
+    [Header("SceneReference")]
     [SerializeField] private Camera _hudCamera;
     [SerializeField] private Transform _target;
+    [Header("SelfReference")]
     [SerializeField] private EntityAnimator _animator;
     [SerializeField] private GameController _controller;
 
@@ -13,9 +14,16 @@ public class Player : MonoBehaviour, IDamage
 
     public event System.Action<float> OnChageHealth;
 
-    private void Start()
+    public void Reset()
     {
         _curretHealth = _height;
+        enabled = true;
+        _controller.enabled = true;
+    }
+
+    private void Start()
+    {
+        Reset();
     }
 
 
@@ -26,6 +34,7 @@ public class Player : MonoBehaviour, IDamage
     public void Kill()
     {
         enabled = false;
+        _controller.enabled = false;
         _animator.Dead();
     }
 
