@@ -1,13 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-    [SerializeField] private GameController _controller;
+    [SerializeField] private int _sceneLoad;
+    [Header("Reference")]
+    [SerializeField] private DataSaver _dataSaver;
     [SerializeField] private UIMenu _startMenu;
+    [SerializeField] private GameController _controller;
 
     public void LoadLvl()
     {
-        
+        _dataSaver.Save();
+        SceneManager.LoadScene(_sceneLoad);
     }
 
     public void Canel()

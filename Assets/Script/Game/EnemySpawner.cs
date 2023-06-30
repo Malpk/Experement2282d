@@ -16,6 +16,8 @@ public class EnemySpawner : MonoBehaviour
     private float _delay = 1f;
     private Coroutine _corotine;
 
+    public bool IsActive => enabled;
+
     public void Reset()
     {
         _enemyPool.Reset();

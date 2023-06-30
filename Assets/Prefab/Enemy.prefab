@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 2
   _attackStats: {fileID: 11400000, guid: c64191bd3ae27114d924d6271f1ca8d6, type: 2}
-  _speedRange: {x: 2.5, y: 3}
+  _speedRange: {x: 3, y: 3.5}
   _detect: {fileID: 8277845750008544716}
   _rigidBody: {fileID: 2764229756088465414}
   _animator: {fileID: 8558639338850840710}

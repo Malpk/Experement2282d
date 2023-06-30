@@ -8,15 +8,22 @@ public class Wallet : MonoBehaviour
     [SerializeField] private UnityEvent<int> _onChangeMoney;
     [SerializeField] private UnityEvent<int> _onSetMoney;
 
+    public int Money => _money;
+
     private void OnValidate()
     {
         _onChangeMoney.Invoke(_money);
     }
 
+    public void SetMoney(int money)
+    {
+        _money = money;
+        _onSetMoney.Invoke(_money);
+    }
+
     public void SetRegress(float regress)
     {
-        _money = (int)(_money / regress);
-        _onSetMoney.Invoke(_money);
+        SetMoney((int)(_money / regress));
     }
 
     public void TakeMoney(int money)
