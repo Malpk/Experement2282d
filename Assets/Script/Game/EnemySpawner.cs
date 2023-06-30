@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private bool _playOnStart;
     [SerializeField] private int _maxEnemy;
     [SerializeField] private float _countSecond;
-    [SerializeField] private Vector2 _spawnDistance;
     [Header("Reference")]
     [SerializeField] private Pool _enemyPool;
-    [SerializeField] private Player _target;
+    [SerializeField] private Player _player;
+    [SerializeField] private Transform[] _spawnPoint;
     [SerializeField] private KillReward _reward;
     [SerializeField] private PoolCleaner _clener;
 
@@ -28,7 +29,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void Start()
     {
-        Play();
+        if(_playOnStart)
+            Play();
     }
 
     public void Play()
@@ -53,7 +55,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitWhile(() => _reward.CountEnemy >= _maxEnemy);
             var enemy = Spawn();
             enemy.Reset();
-            enemy.SetTarget(_target);
+            enemy.SetTarget(_player);
             _reward.AddEnemy(enemy);
             yield return new WaitForSeconds(_delay);
         }
@@ -76,10 +78,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void SetPosition(Transform enemy)
     {
-        var distance = Random.Range(_spawnDistance.x, _spawnDistance.y);
-        var angel = Random.Range(0f, 360f) / Mathf.Deg2Rad;
-        var position = new Vector2(Mathf.Cos(angel), Mathf.Sin(angel)) * distance;
-        enemy.position = (Vector2)_target.transform.position + position;
+        Vector2 position = _spawnPoint[Random.Range(0, _spawnPoint.Length)].position;
+        enemy.position = position;
     }
 
 }

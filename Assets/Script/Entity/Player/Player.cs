@@ -3,9 +3,6 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamage
 {
     [SerializeField] private int _height = 5;
-    [Header("SceneReference")]
-    [SerializeField] private Camera _hudCamera;
-    [SerializeField] private Transform _target;
     [Header("SelfReference")]
     [SerializeField] private EntityAnimator _animator;
     [SerializeField] private GameController _controller;
@@ -28,11 +25,6 @@ public class Player : MonoBehaviour, IDamage
     private void Start()
     {
         Reset();
-    }
-
-    private void Update()
-    {
-        _target.position = (Vector2)_hudCamera.ScreenToWorldPoint(Input.mousePosition);
     }
     public void Kill()
     {

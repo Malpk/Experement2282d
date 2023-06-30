@@ -18,6 +18,11 @@ public class EnemyHealth : MonoBehaviour, IDamage
         _collider.isTrigger = false;
     }
 
+    private void Start()
+    {
+        _currethelth = _health;
+    }
+
     public void Kill()
     {
         _collider.isTrigger = true;

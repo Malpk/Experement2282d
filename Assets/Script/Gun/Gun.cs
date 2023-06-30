@@ -14,11 +14,11 @@ public class Gun : MonoBehaviour
 
     private bool _pressGun = false;
 
-    public GunType GunType => _gunType;
     public Sprite Icon => _gunIcon;
-    public GunMagazine Magazine => _magazine;
     public Transform RightHandPoint => _rightHandPoint;
     public Transform LeftHandPoint => _leftHandPoint;
+
+    public event System.Action<int, int> OnUpdateMagazine;
 
     public void Reset()
     {
@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
             {
                 _magazine.CurrteMagazine--;
                 _sound.Shoot();
+                UpdateGun();
                 return true;
             }
         }
@@ -52,11 +53,11 @@ public class Gun : MonoBehaviour
         return false;
     }
 
-    public void Reload(bool input, System.Action actin)
+    public void Reload(bool input)
     {
         if (input)
         {
-            if (_magazine.Reload(actin))
+            if (_magazine.Reload(UpdateGun))
             {
                 _sound.Reload();
             }
@@ -66,6 +67,11 @@ public class Gun : MonoBehaviour
     public bool AddAmmo(int ammo)
     {
         return _magazine.AddAmmo(ammo);
+    }
+
+    private void UpdateGun()
+    {
+        OnUpdateMagazine?.Invoke(_magazine.CurrteMagazine, _magazine.CurretAmmo);
     }
 
 }

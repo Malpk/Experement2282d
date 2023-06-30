@@ -9,9 +9,10 @@ public class GunHolder : MonoBehaviour
     [SerializeField] private Gun _gun;
     [SerializeField] private Gun[] _guns;
     [Header("Reference")]
-    [SerializeField] private GunInfo _uiInfo;
     [SerializeField] private UIMenu _gunMenu;
     [SerializeField] private GunHolderDirection _holderDirection;
+
+    public event System.Action<Gun> OnSetGun;
 
     public Gun[] Guns => _guns;
 
@@ -22,7 +23,6 @@ public class GunHolder : MonoBehaviour
             if(gun)
                 gun.Reset();
         }
-        UpdateGunInfo();
     }
 
     private void Start()
@@ -37,9 +37,8 @@ public class GunHolder : MonoBehaviour
         gun.gameObject.SetActive(true);
         GrabGun(gun);
         _gun = gun;
-        _uiInfo.SetIcon(gun.Icon);
+        OnSetGun?.Invoke(_gun);
         _holderDirection.SetGun(gun);
-        UpdateGunInfo();
     }
 
     private void GrabGun(Gun gun)
@@ -60,11 +59,7 @@ public class GunHolder : MonoBehaviour
     {
         if (!_gunMenu.IsShow)
         {
-            if (_gun.Shoot(input))
-            {
-                UpdateGunInfo();
-                return true;
-            }
+            return _gun.Shoot(input);
         }
         return false;
     }
@@ -72,12 +67,6 @@ public class GunHolder : MonoBehaviour
     public void Reload(bool input)
     {
         if(!_gunMenu.IsShow)
-            _gun.Reload(input, UpdateGunInfo);
+            _gun.Reload(input);
     }
-
-    private void UpdateGunInfo()
-    {
-        _uiInfo.UpdateText(_gun.Magazine.CurrteMagazine, _gun.Magazine.CurretAmmo);
-    }
-
 }

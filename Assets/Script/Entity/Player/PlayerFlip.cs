@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class PlayerFlip : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
-    [Header("Flip Reference")]
+    [SerializeField] private Camera _mainCamera;
     [SerializeField] private Transform _playerBody;
     [SerializeField] private GunHolderDirection _gunHolder;
 
     private void Update()
     {
-        var direction = _target.position - _gunHolder.transform.position;
+        Vector2 direction = Input.mousePosition - _mainCamera.WorldToScreenPoint(transform.position);
         FlipBody(direction.x);
         _gunHolder.SetDirectionShoot(direction);
     }

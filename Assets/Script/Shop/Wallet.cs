@@ -1,20 +1,22 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
     [SerializeField] private int _money;
-    [SerializeField] private TextNumUI _text;
+    [Header("Event")]
+    [SerializeField] private UnityEvent<int> _onChangeMoney;
+    [SerializeField] private UnityEvent<int> _onSetMoney;
 
     private void OnValidate()
     {
-        if (_text)
-            _text.SetValue(_money);
+        _onChangeMoney.Invoke(_money);
     }
 
     public void SetRegress(float regress)
     {
         _money = (int)(_money / regress);
-        _text.SetValue(_money);
+        _onSetMoney.Invoke(_money);
     }
 
     public void TakeMoney(int money)
@@ -28,7 +30,7 @@ public class Wallet : MonoBehaviour
         if (_money >= money)
         {
             _money -= money;
-            _text.SetValue(_money);
+            _onSetMoney.Invoke(_money);
             return true;
         }
         return false;
@@ -36,6 +38,6 @@ public class Wallet : MonoBehaviour
 
     private void UpdateUI()
     {
-        _text.UpdateText(_money);
+        _onChangeMoney.Invoke(_money);
     }
 }

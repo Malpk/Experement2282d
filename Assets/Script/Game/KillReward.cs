@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class KillReward : MonoBehaviour
 {
-    [SerializeField] private int _reward;
+    [SerializeField] private Vector2Int _reward;
+    [Header("Event")]
+    [SerializeField] private UnityEvent<int> _onCangeCount;
     [Header("SceneReference")]
     [SerializeField] private Wallet _wallet;
 
@@ -18,6 +21,7 @@ public class KillReward : MonoBehaviour
             enemy.OnDead -= DeleteEnemy;
         }
         _activeEnemy.Clear();
+        _onCangeCount.Invoke(_activeEnemy.Count);
     }
 
     public void AddEnemy(Enemy enemy)
@@ -26,13 +30,15 @@ public class KillReward : MonoBehaviour
         {
             _activeEnemy.Add(enemy);
             enemy.OnDead += DeleteEnemy;
+            _onCangeCount.Invoke(_activeEnemy.Count);
         }
     }
 
     private void DeleteEnemy(Enemy enemy)
     {
-        _wallet.TakeMoney(_reward);
+        _wallet.TakeMoney(Random.Range(_reward.x, _reward.y));
         _activeEnemy.Remove(enemy);
         enemy.OnDead -= DeleteEnemy;
+        _onCangeCount.Invoke(_activeEnemy.Count);
     }
 }

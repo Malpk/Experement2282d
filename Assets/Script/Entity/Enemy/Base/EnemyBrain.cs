@@ -28,6 +28,11 @@ public class EnemyBrain : MonoBehaviour
         SwitchState(_startState);
     }
 
+    private void Start()
+    {
+        Reset();
+    }
+
     public void UpdateState()
     {
         _curretState.UpdateState();

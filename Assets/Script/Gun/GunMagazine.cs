@@ -57,14 +57,14 @@ public class GunMagazine : MonoBehaviour
     }
 
 
-    public bool Reload(System.Action actin)
+    public bool Reload(System.Action reloadAction)
     {
         if (!IsReload)
         {
             _progress = 0f;
             enabled = true;
             IsReload = true;
-            _reloadAction = actin;
+            _reloadAction = reloadAction;
             return true;
         }
         return false;
