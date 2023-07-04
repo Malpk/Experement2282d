@@ -7,18 +7,18 @@ public class GunInfo : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
     [Header("SceneReference")]
-    [SerializeField] private GunHolder _gunHolder;
+    [SerializeField] private GunController _gun;
 
     private Gun _curretGun;
 
     private void OnEnable()
     {
-        _gunHolder.OnSetGun += SetGun;
+        _gun.OnSetGun += SetGun;
     }
 
     private void OnDisable()
     {
-        _gunHolder.OnSetGun -= SetGun;
+        _gun.OnSetGun -= SetGun;
     }
 
     private void SetGun(Gun gun)

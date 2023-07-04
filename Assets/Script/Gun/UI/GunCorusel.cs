@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class GunCorusel : MonoBehaviour
 {
-    [SerializeField] private GunHolder _holder;
     [SerializeField] private GunCell[] _cells;
+    [Header("Event")]
+    [SerializeField] private UnityEvent<Gun> _onSelect; 
 
     private GunCell _selectCell;
+
+    public int Count => _cells.Length;
 
     private void Update()
     {
@@ -13,16 +18,6 @@ public class GunCorusel : MonoBehaviour
             GetPosition());
         if (_selectCell != cell)
             SelectCell(cell);
-    }
-
-    public void Load()
-    {
-        for (int i = 0; i < _cells.Length && i < _holder.Guns.Length; i++)
-        {
-            _cells[i].SetGun(_holder.Guns[i]);
-        }
-        if (_selectCell)
-            _selectCell.Select();
     }
 
     public bool AddGun(Gun gun)
@@ -59,7 +54,7 @@ public class GunCorusel : MonoBehaviour
         cell.Select();
         _selectCell = cell;
         if(cell.Content)
-            _holder.SetGun(cell.Content);
+            _onSelect.Invoke(cell.Content);
     }
 
     private GunCell Getcell(Vector2 position)

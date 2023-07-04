@@ -1,22 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(UIMenu))]
-public class GunMenu : MonoBehaviour
+public class GunMenu : UIMenu
 {
-    [SerializeField] private GunHolder _holder;
     [SerializeField] private GunCorusel _corusel;
 
-    private UIMenu _menu;
+    public int CountCell => _corusel.Count;
 
-    private void Awake()
+    public void AddGun(Gun gun)
     {
-        _menu = GetComponent<UIMenu>();
+        _corusel.AddGun(gun);
     }
 
-    public void AddGun()
+    public void RemoveGun(Gun gun)
     {
-        
+        _corusel.RemoveGun(gun);
     }
 }

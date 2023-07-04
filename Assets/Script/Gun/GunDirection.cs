@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GunHolderDirection : MonoBehaviour
+public class GunDirection : MonoBehaviour
 {
     private Gun _gun;
 

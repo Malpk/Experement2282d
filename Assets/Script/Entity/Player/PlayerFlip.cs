@@ -4,7 +4,7 @@ public class PlayerFlip : MonoBehaviour
 {
     [SerializeField] private Camera _mainCamera;
     [SerializeField] private Transform _playerBody;
-    [SerializeField] private GunHolderDirection _gunHolder;
+    [SerializeField] private GunDirection _gunHolder;
 
     private void Update()
     {

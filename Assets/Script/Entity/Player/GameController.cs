@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] private GunHolder _holder;
+    [SerializeField] private GunController _gun;
     [SerializeField] private PlayerSound _sound;
     [SerializeField] private PlayerMovement _movement;
 
@@ -19,8 +20,8 @@ public class GameController : MonoBehaviour
     {
         if (!_block)
         {
-            _holder.Reload(Input.GetKeyDown(KeyCode.R));
-            _holder.Shoot(Input.GetKey(KeyCode.Mouse0));
+            _gun.Reload(Input.GetKeyDown(KeyCode.R));
+            _gun.Shoot(Input.GetKey(KeyCode.Mouse0));
         }
         _interactive.Invoke(Input.GetKeyDown(KeyCode.E));
     }

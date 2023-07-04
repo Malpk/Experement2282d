@@ -8,7 +8,7 @@ public class GoodsUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 {
     [SerializeField] private float _durationAnimation;
     [SerializeField] private Color _selectColor;
-    [SerializeField] private DataItem _item;
+    [SerializeField] private ShopItem _item;
     [Header("SelfReferences")]
     [SerializeField] private Image _icon;
     [SerializeField] private Image _select;
@@ -20,18 +20,12 @@ public class GoodsUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
     public event System.Action<GoodsUI> OnSelect;
 
-    public bool IsBuy { get; private set; } = false;
-    public DataItem Content => _item;
+    public bool IsBuy => _item.IsBuy;
+    public ShopItem Content => _item;
 
     private void Awake()
     {
         _baseColor = _select.color;
-    }
-
-    private void OnValidate()
-    {
-        if (_item)
-            SetItem(_item);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -57,16 +51,23 @@ public class GoodsUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         _select.DOColor(_baseColor, _durationAnimation);
     }
 
-    public void SetItem(DataItem item)
+    public void SetItem(ShopItem item)
     {
         _item = item;
+        SetData(item.Content);
+        if (_item.IsBuy)
+            Buy();
+    }
+
+    public void Buy()
+    {
+        
+    }
+
+    private void SetData(DataItem item)
+    {
         _name.text = item.Name;
         _icon.sprite = item.Icon;
         _price.SetText(item.Price.ToString());
-    }
-
-    public void Buy(bool input)
-    {
-        IsBuy = input;
     }
 }

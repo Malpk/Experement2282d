@@ -51,12 +51,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91e3e1a6269ed543b4af16fc5eb772c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _holder: {fileID: 0}
   _cells:
   - {fileID: 18686229878713028}
   - {fileID: 18686229297512896}
   - {fileID: 18686228080643950}
   - {fileID: 4655538021751901165}
+  _onSelect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4655538021527667404
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +69,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4655538021527667405}
   - component: {fileID: 5491054808243307967}
-  - component: {fileID: 4655538021527667401}
   - component: {fileID: 4655538021527667400}
   - component: {fileID: 4655538021527667407}
   - component: {fileID: 4655538021527667406}
@@ -109,42 +110,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 4655538021527667404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f07cc2a2448b0304389d1655e548a4e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _holder: {fileID: 0}
-  _corusel: {fileID: 4655538021098524664}
---- !u!114 &4655538021527667401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4655538021527667404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7cc44f02622814683b5f41f0f82924, type: 3}
+  m_Script: {fileID: 11500000, guid: 10fe3029bd73a874a9c6bb612ee100d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
   _onShow:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4655538021098524664}
-        m_TargetAssemblyTypeName: GunCorusel, Assembly-CSharp
-        m_MethodName: Load
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _onHide:
     m_PersistentCalls:
       m_Calls: []
+  _corusel: {fileID: 0}
 --- !u!223 &4655538021527667400
 Canvas:
   m_ObjectHideFlags: 0
