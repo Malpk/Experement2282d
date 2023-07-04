@@ -7,6 +7,14 @@ public class GunCorusel : MonoBehaviour
 
     private GunCell _selectCell;
 
+    private void Update()
+    {
+        var cell = Getcell(
+            GetPosition());
+        if (_selectCell != cell)
+            SelectCell(cell);
+    }
+
     public void Load()
     {
         for (int i = 0; i < _cells.Length && i < _holder.Guns.Length; i++)
@@ -17,12 +25,28 @@ public class GunCorusel : MonoBehaviour
             _selectCell.Select();
     }
 
-    private void Update()
+    public bool AddGun(Gun gun)
     {
-        var cell = Getcell(
-            GetPosition());
-        if (_selectCell != cell)
-            SelectCell(cell);
+        foreach (var cell in _cells)
+        {
+            if (!cell.Content)
+            {
+                cell.SetGun(gun);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void RemoveGun(Gun gun)
+    {
+        foreach (var cell in _cells)
+        {
+            if (cell.Content == gun)
+            {
+                cell.SetGun(null);
+            }
+        }
     }
 
     private void SelectCell(GunCell cell)

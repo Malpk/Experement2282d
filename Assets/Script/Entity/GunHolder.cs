@@ -41,14 +41,6 @@ public class GunHolder : MonoBehaviour
         _holderDirection.SetGun(gun);
     }
 
-    private void GrabGun(Gun gun)
-    {
-        _rightHand.parent = gun.RightHandPoint;
-        _leftHand.parent = gun.LeftHandPoint;
-        _rightHand.localPosition = Vector3.zero;
-        _leftHand.localPosition = Vector3.zero;
-    }
-
     public void SwitchGunMenu(bool input)
     {
         if (input)
@@ -69,4 +61,13 @@ public class GunHolder : MonoBehaviour
         if(!_gunMenu.IsShow)
             _gun.Reload(input);
     }
+
+    private void GrabGun(Gun gun)
+    {
+        _rightHand.parent = gun.RightHandPoint;
+        _leftHand.parent = gun.LeftHandPoint;
+        _rightHand.localPosition = Vector3.zero;
+        _leftHand.localPosition = Vector3.zero;
+    }
+
 }

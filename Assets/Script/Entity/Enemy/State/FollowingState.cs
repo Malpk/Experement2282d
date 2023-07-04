@@ -48,7 +48,7 @@ public class FollowingState : EnemyState
             _rigidBody.transform.localScale = scale;
         }
         var move = Vector2.MoveTowards(_rigidBody.position, _target,
-            _speedDelta * Time.fixedDeltaTime);
+            _speedDelta * Time.deltaTime);
         _rigidBody.MovePosition(move);
     }
 }

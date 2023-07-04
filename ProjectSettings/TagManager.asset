@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Entity
+    uniqueID: 1300027177
+    locked: 0
+  - name: Enverement
+    uniqueID: 2577101179
+    locked: 0

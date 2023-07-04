@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class UIMenu : MonoBehaviour
 {
     [SerializeField] private MenuType _type;
-    [Header("Reference")]
+    [Header("Event")]
     [SerializeField] private UnityEvent _onShow;
     [SerializeField] private UnityEvent _onHide;
 

@@ -66,6 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4655538021527667405}
+  - component: {fileID: 5491054808243307967}
   - component: {fileID: 4655538021527667401}
   - component: {fileID: 4655538021527667400}
   - component: {fileID: 4655538021527667407}
@@ -76,7 +77,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4655538021527667405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -99,6 +100,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &5491054808243307967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655538021527667404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07cc2a2448b0304389d1655e548a4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _holder: {fileID: 0}
+  _corusel: {fileID: 4655538021098524664}
 --- !u!114 &4655538021527667401
 MonoBehaviour:
   m_ObjectHideFlags: 0

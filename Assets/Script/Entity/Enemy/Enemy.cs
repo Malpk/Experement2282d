@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
         _brain.Reset();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         _brain.UpdateState();
     }
