@@ -4,6 +4,7 @@ public class GunSound : MonoBehaviour
 {
     [SerializeField] private AudioClip _shoot;
     [SerializeField] private AudioClip _reload;
+    [SerializeField] private AudioClip _pick;
     [SerializeField] private AudioClip _emptyMagazine;
     [Header("Reference")]
     [SerializeField] private AudioSource _source;
@@ -21,5 +22,10 @@ public class GunSound : MonoBehaviour
     public void EmptyMagazine()
     {
         _source.PlayOneShot(_emptyMagazine);
+    }
+
+    public void Pick()
+    {
+        _source.PlayOneShot(_pick);
     }
 }

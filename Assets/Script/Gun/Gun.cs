@@ -14,6 +14,7 @@ public class Gun : DataItem
 
     private bool _pressGun = false;
 
+    public GunType GunType => _gunType;
     public Transform RightHandPoint => _rightHandPoint;
     public Transform LeftHandPoint => _leftHandPoint;
 
@@ -65,7 +66,13 @@ public class Gun : DataItem
 
     public bool AddAmmo(int ammo)
     {
-        return _magazine.AddAmmo(ammo);
+        if (_magazine.AddAmmo(ammo))
+        {
+            UpdateGun();
+            _sound.Pick();
+            return true;
+        }
+        return false;
     }
 
     private void UpdateGun()

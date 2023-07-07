@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shoot: {fileID: 8300000, guid: 5f54e4c4db5fd304cbffb5b39f9b0aa2, type: 3}
   _reload: {fileID: 8300000, guid: ad468c01df18ba844afe7e5337c87245, type: 3}
+  _pick: {fileID: 8300000, guid: 2df679eb5d8a2514d83e1c0f970a6d11, type: 3}
   _emptyMagazine: {fileID: 8300000, guid: a99323d7193df6e4caea3c5710d869f0, type: 3}
   _source: {fileID: 185479762104271575}
 --- !u!82 &185479762104271575

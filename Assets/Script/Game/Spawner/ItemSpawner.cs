@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    [SerializeField] private float _spawnProbility;
+    [Range(0,1f)]
+    [SerializeField] private float _spawnProbility = 0.5f;
     [SerializeField] private ItemSpawnSlot[] _slots;
 
     public void Spawn(Vector2 position)

@@ -7,6 +7,7 @@ public class KillReward : MonoBehaviour
     [SerializeField] private Vector2Int _reward;
     [Header("Event")]
     [SerializeField] private UnityEvent<int> _onCangeCount;
+    [SerializeField] private UnityEvent<Vector2> _onKill;
     [Header("SceneReference")]
     [SerializeField] private Wallet _wallet;
 
@@ -38,6 +39,7 @@ public class KillReward : MonoBehaviour
     {
         _wallet.TakeMoney(Random.Range(_reward.x, _reward.y));
         _activeEnemy.Remove(enemy);
+        _onKill.Invoke(enemy.transform.position);
         enemy.OnDead -= DeleteEnemy;
         _onCangeCount.Invoke(_activeEnemy.Count);
     }

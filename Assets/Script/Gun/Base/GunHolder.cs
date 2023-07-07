@@ -31,6 +31,18 @@ public class GunHolder : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Ammo ammo))
+        {
+            if (TryGetGun(ammo.Gun, out Gun gun))
+            {
+                gun.AddAmmo(ammo.CountAmmo);
+                ammo.Delete();
+            }
+        }
+    }
+
     public string Save()
     {
         var data = new GunHolderData();
@@ -75,6 +87,23 @@ public class GunHolder : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    private bool TryGetGun(GunType type,out Gun gun)
+    {
+        gun = null;
+        foreach (var slot in _slots)
+        {
+            if (slot.Gun)
+            {
+                if (slot.Gun.GunType == type)
+                {
+                    gun = slot.Gun;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }
