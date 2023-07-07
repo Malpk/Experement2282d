@@ -5,6 +5,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private ShopItem[] _items;
     [Header("Reference")]
     [SerializeField] private ShopUI _shopMenu;
+    [SerializeField] private UIMenu _replaceGun;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private GunHolder _holder;
 

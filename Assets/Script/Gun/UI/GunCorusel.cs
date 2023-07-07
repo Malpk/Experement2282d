@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class GunCorusel : MonoBehaviour
 {
     [SerializeField] private GunCell[] _cells;
+    [SerializeField] private ReplaceGunMenu _gunMenu;
     [Header("Event")]
     [SerializeField] private UnityEvent<Gun> _onSelect; 
 
@@ -18,19 +19,6 @@ public class GunCorusel : MonoBehaviour
             GetPosition());
         if (_selectCell != cell)
             SelectCell(cell);
-    }
-
-    public bool AddGun(Gun gun)
-    {
-        foreach (var cell in _cells)
-        {
-            if (!cell.Content)
-            {
-                cell.SetGun(gun);
-                return true;
-            }
-        }
-        return false;
     }
 
     public void RemoveGun(Gun gun)

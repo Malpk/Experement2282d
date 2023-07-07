@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class GunCell : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class GunCell : MonoBehaviour
     public Gun Content => _containGun;
 
     public bool IsSelect { get; private set; }
+
 
     public void Select()
     {
@@ -31,5 +31,13 @@ public class GunCell : MonoBehaviour
         _containGun = gun;
         _gunIcon.sprite = gun.Icon;
         _gunIcon.gameObject.SetActive(gun);
+    }
+
+    public void Replace(DataItem item)
+    {
+        if (item.TryGetComponent(out Gun gun))
+        {
+            SetGun(gun);
+        }
     }
 }

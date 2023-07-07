@@ -120,7 +120,7 @@ MonoBehaviour:
   _onHide:
     m_PersistentCalls:
       m_Calls: []
-  _corusel: {fileID: 0}
+  _corusel: {fileID: 4655538021098524664}
 --- !u!223 &4655538021527667400
 Canvas:
   m_ObjectHideFlags: 0
