@@ -10,11 +10,9 @@ namespace Proxy
 
         private void Awake()
         {
-            _replaceMenu.Intilizate(_slots);
             foreach (var slot in _slots)
             {
-                if(slot.Gun)
-                    slot.Intilizate();
+                slot.Intilizate(transform);
             }
         }
 

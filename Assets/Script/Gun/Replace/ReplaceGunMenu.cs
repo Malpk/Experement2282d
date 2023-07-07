@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ReplaceGunMenu : UIMenu
 {
+    [SerializeField] private GunHolder _holder;
+    [Header("CanvasReference")]
     [SerializeField] private SlotUI _prefabSlot;
     [SerializeField] private CellUI _replaceCell;
     [SerializeField] private ReplaceCell[] _cells;
@@ -9,8 +11,9 @@ public class ReplaceGunMenu : UIMenu
 
     private SlotUI _replaceSlot;
 
-    public void Intilizate(GunSlot[] slots)
+    public void Awake()
     {
+        var slots = _holder.Slots;
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].Gun)

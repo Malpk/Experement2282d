@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class GunCorusel : MonoBehaviour
 {
     [SerializeField] private GunCell[] _cells;
-    [SerializeField] private ReplaceGunMenu _gunMenu;
     [Header("Event")]
     [SerializeField] private UnityEvent<Gun> _onSelect; 
 

@@ -20,7 +20,7 @@ public class GunController : MonoBehaviour
         gun.gameObject.SetActive(true);
         GrabGun(gun);
         _gun = gun;
-        OnSetGun?.Invoke(_gun);
+        OnSetGun?.Invoke(gun);
         _holderDirection.SetGun(gun);
     }
 
@@ -34,6 +34,14 @@ public class GunController : MonoBehaviour
     {
         input = input && !_isBlock;
         _gun.Reload(input);
+    }
+
+    public void DropGun()
+    {
+        _gun.gameObject.SetActive(false);
+        _gun = null;
+        _rightHand.parent = transform;
+        _leftHand.parent = transform;
     }
 
     private void GrabGun(Gun gun)

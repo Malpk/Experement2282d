@@ -376,7 +376,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7699537471131631142}
-  - component: {fileID: 2453270443933916825}
   - component: {fileID: 3365556552644942589}
   - component: {fileID: 488329189701729306}
   - component: {fileID: 7945558071360281110}
@@ -408,22 +407,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2453270443933916825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5873501503133957239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ae02bc28319da4399c52512f729530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 1
-  _price: 100
-  _name: "\u0410\u0432\u0442\u043E\u0430\u0442 \u043A\u0430\u043B\u0430\u0432\u0448\u043D\u0438\u043A\u043E\u0432\u0430"
-  _icon: {fileID: 21300000, guid: 99d45756b44cb604eb58409adf182502, type: 3}
 --- !u!114 &3365556552644942589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +419,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f2be77b5af7a64fad3d67f809bbab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 1
+  _price: 100
+  _name: "\u0410\u0432\u0442\u043E\u0430\u0442 \u043A\u0430\u043B\u0430\u0432\u0448\u043D\u0438\u043A\u043E\u0432\u0430"
+  _icon: {fileID: 21300000, guid: 99d45756b44cb604eb58409adf182502, type: 3}
   _gunType: 1
   _rightHandPoint: {fileID: 1883425946}
   _leftHandPoint: {fileID: 368067839}

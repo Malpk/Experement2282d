@@ -243,11 +243,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3d16092ab082741a34403aff3cb66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _guns:
-  - {fileID: 6079725478070615428}
-  - {fileID: 6919557919138982819}
+  _slots:
+  - _gun: {fileID: 6079725478070615428}
+    _coruselSlot: {fileID: 0}
+  - _gun: {fileID: 0}
+    _coruselSlot: {fileID: 0}
+  - _gun: {fileID: 0}
+    _coruselSlot: {fileID: 0}
+  - _gun: {fileID: 0}
+    _coruselSlot: {fileID: 0}
   _gunMenu: {fileID: 0}
+  _gunHolder: {fileID: 6008922214631401788}
   _controller: {fileID: 1912175137}
+  _replaceMenu: {fileID: 0}
 --- !u!114 &1912175137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,6 +1191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ak-47
       objectReference: {fileID: 0}
+    - target: {fileID: 5873501503133957239, guid: 623cb170ba04531439c8d44f7739bbc4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7699537471131631142, guid: 623cb170ba04531439c8d44f7739bbc4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1326,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5499680246487957585, guid: 6ecdbc31b3023eb4bb43dfe479b5efc2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8577761889805419008, guid: 6ecdbc31b3023eb4bb43dfe479b5efc2, type: 3}
       propertyPath: m_RootOrder

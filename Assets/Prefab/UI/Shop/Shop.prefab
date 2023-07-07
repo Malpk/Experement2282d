@@ -627,8 +627,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1802546262}
   m_HandleRect: {fileID: 1802546261}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5219275
+  m_Value: 0.99999976
+  m_Size: 0.5219274
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -945,7 +945,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1754907039}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2566251260820815558}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1802546260
 GameObject:
   m_ObjectHideFlags: 0

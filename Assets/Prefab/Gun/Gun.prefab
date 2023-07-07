@@ -345,7 +345,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8577761889805419008}
-  - component: {fileID: 5798514425839083816}
   - component: {fileID: 3703313142852593371}
   - component: {fileID: 3959155869174429310}
   - component: {fileID: 7087691854522433224}
@@ -376,22 +375,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5798514425839083816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5499680246487957585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ae02bc28319da4399c52512f729530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 0
-  _price: 50
-  _name: "\u041C\u0430\u043A\u0430\u0440\u043E\u0432"
-  _icon: {fileID: 21300000, guid: 7f2aa785f19853a408ee819c9ed9e0fb, type: 3}
 --- !u!114 &3703313142852593371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f2be77b5af7a64fad3d67f809bbab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
+  _price: 50
+  _name: "\u041C\u0430\u043A\u0430\u0440\u043E\u0432"
+  _icon: {fileID: 21300000, guid: 7f2aa785f19853a408ee819c9ed9e0fb, type: 3}
   _gunType: 0
   _rightHandPoint: {fileID: 8383322328944456126}
   _leftHandPoint: {fileID: 8383322328944456126}

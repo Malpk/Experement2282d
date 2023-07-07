@@ -5,6 +5,8 @@ public class DataSaver : MonoBehaviour
     [SerializeField] private string _saveKey;
     [Header("Reference")]
     [SerializeField] private Wallet _wallet;
+    [SerializeField] private GunHolder _gunHolder;
+    [SerializeField] private DataHolder _data;
 
     private void Start()
     {
@@ -15,6 +17,7 @@ public class DataSaver : MonoBehaviour
     {
         var data = new PlayerData();
         data.Money = _wallet.Money;
+        data.GunHolderData = _gunHolder.Save();
         PlayerPrefs.SetString(_saveKey, JsonUtility.ToJson(data));
     }
 
@@ -25,6 +28,30 @@ public class DataSaver : MonoBehaviour
             var data = JsonUtility.FromJson<PlayerData>(
                 PlayerPrefs.GetString(_saveKey));
             _wallet.SetMoney(data.Money);
+            LoadGun(data.GunHolderData);
         }
     }
+
+    private void LoadGun(string gunHolder)
+    {
+        if (gunHolder != null)
+        {
+            var data = JsonUtility.FromJson<GunHolderData>(gunHolder);
+            var guns = new Gun[data.ContainGuns.Length];
+            for (int i = 0; i < data.ContainGuns.Length; i++)
+            {
+                if (data.ContainGuns[i] != -1)
+                {
+                    var item = _data.GetItem(data.ContainGuns[i]);
+                    guns[i] = item.GetComponent<Gun>();
+                }
+                else
+                {
+                    guns[i] = null;
+                }
+            }
+            _gunHolder.Load(guns, data.ChooseGun);
+        }
+    }
+
 }

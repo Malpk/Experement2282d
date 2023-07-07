@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun : DataItem
 {
     [SerializeField] private GunType _gunType;
     [Header("Hand")]
@@ -14,7 +14,6 @@ public class Gun : MonoBehaviour
 
     private bool _pressGun = false;
 
-    public Sprite Icon => _gunIcon;
     public Transform RightHandPoint => _rightHandPoint;
     public Transform LeftHandPoint => _leftHandPoint;
 

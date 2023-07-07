@@ -8,7 +8,6 @@ public class GunCell : MonoBehaviour
     [SerializeField] private Image _gunIcon;
     [SerializeField] private Animator _animator;
 
-
     public Gun Content => _containGun;
 
     public bool IsSelect { get; private set; }
@@ -29,7 +28,7 @@ public class GunCell : MonoBehaviour
     public void SetGun(Gun gun)
     {
         _containGun = gun;
-        _gunIcon.sprite = gun.Icon;
+        _gunIcon.sprite = gun ? gun.Icon : null;
         _gunIcon.gameObject.SetActive(gun);
     }
 

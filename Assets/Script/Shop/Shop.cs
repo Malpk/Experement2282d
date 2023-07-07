@@ -5,9 +5,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private ShopItem[] _items;
     [Header("Reference")]
     [SerializeField] private ShopUI _shopMenu;
-    [SerializeField] private UIMenu _replaceGun;
     [SerializeField] private Wallet _wallet;
-    [SerializeField] private GunHolder _holder;
+    [SerializeField] private ReplaceGunMenu _replaceGun;
 
     private ShopItem _select;
 
@@ -24,6 +23,14 @@ public class Shop : MonoBehaviour
     private void OnDisable()
     {
         _shopMenu.OnSelect -= SelectData;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && _replaceGun.IsShow)
+        {
+            _replaceGun.Hide();
+        }
     }
 
     public void SelectData(ShopItem item)
@@ -43,9 +50,10 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void AddGun(DataItem gun)
+    public void AddGun()
     {
-        _holder.AddGun(gun.GetComponent<Gun>());
+        _replaceGun.SetReplce(_select.Content);
+        _replaceGun.Show();
     }
 
     private void Load()

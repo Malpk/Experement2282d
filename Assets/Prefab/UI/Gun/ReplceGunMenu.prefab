@@ -155,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &619982817271260098
 RectTransform:
   m_ObjectHideFlags: 0
@@ -201,10 +201,10 @@ MonoBehaviour:
   _prefabSlot: {fileID: 4959012316557807521, guid: 5beeca254c70e1343b181598a9a5c643, type: 3}
   _replaceCell: {fileID: 3867648527727336686}
   _cells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8592145644440996784}
+  - {fileID: 2066890552273328185}
+  - {fileID: 2492135864413971664}
+  - {fileID: 5120625505489950577}
   _canvas: {fileID: 619982817271260103}
 --- !u!223 &619982817271260103
 Canvas:
