@@ -1,16 +1,25 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class DataSaver : MonoBehaviour
 {
     [SerializeField] private string _saveKey;
     [Header("Reference")]
+    [SerializeField] private Shop _shop;
     [SerializeField] private Wallet _wallet;
     [SerializeField] private GunHolder _gunHolder;
     [SerializeField] private DataHolder _data;
 
+    private PlayerData _loadData;
+
     private void Start()
     {
         Load();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
     }
 
     public void Save()
@@ -18,6 +27,7 @@ public class DataSaver : MonoBehaviour
         var data = new PlayerData();
         data.Money = _wallet.Money;
         data.GunHolderData = _gunHolder.Save();
+        data.ShopData = _shop ? _shop.Save() : _loadData.ShopData;
         PlayerPrefs.SetString(_saveKey, JsonUtility.ToJson(data));
     }
 
@@ -25,10 +35,11 @@ public class DataSaver : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(_saveKey))
         {
-            var data = JsonUtility.FromJson<PlayerData>(
+            _loadData = JsonUtility.FromJson<PlayerData>(
                 PlayerPrefs.GetString(_saveKey));
-            _wallet.SetMoney(data.Money);
-            LoadGun(data.GunHolderData);
+            _wallet.SetMoney(_loadData.Money);
+            LoadGun(_loadData.GunHolderData);
+            LoadShop(_loadData.ShopData);
         }
     }
 
@@ -51,6 +62,20 @@ public class DataSaver : MonoBehaviour
                 }
             }
             _gunHolder.Load(guns, data.ChooseGun);
+        }
+    }
+
+    private void LoadShop(string data)
+    {
+        if (_shop && data != null)
+        {
+            var shopData = JsonUtility.FromJson<ShopData>(data);
+            var buyList = new List<DataItem>();
+            foreach (var item in shopData.BuyList)
+            {
+                buyList.Add(_data.GetItem(item));
+            }
+            _shop.Load(buyList);
         }
     }
 

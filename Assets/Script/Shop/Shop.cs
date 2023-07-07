@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Shop : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private ReplaceGunMenu _replaceGun;
 
     private ShopItem _select;
+
+    private List<DataItem> _buyList = new List<DataItem>();
 
     private void Awake()
     {
@@ -33,6 +36,30 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public string Save()
+    {
+        var data = new ShopData();
+        data.BuyList = new int[_buyList.Count];
+        for (int i = 0; i < _buyList.Count; i++)
+        {
+            data.BuyList[i] = _buyList[i].ID;
+        }
+        return JsonUtility.ToJson(data);
+    }
+
+    public void Load(List<DataItem> buyList)
+    {
+        _buyList.AddRange(buyList);
+        foreach (var item in _items)
+        {
+            if (buyList.Contains(item.Content))
+            {
+                buyList.Remove(item.Content);
+                item.IsBuy = true;
+            }
+        }
+    }
+
     public void SelectData(ShopItem item)
     {
         _select = item;
@@ -46,6 +73,7 @@ public class Shop : MonoBehaviour
             {
                 _select.IsBuy = true;
                 _shopMenu.BuySelect();
+                _buyList.Add(_select.Content);
             }
         }
     }
