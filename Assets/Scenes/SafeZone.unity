@@ -139,6 +139,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1236318603}
     - target: {fileID: 6031618774152429389, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
+      propertyPath: _shop
+      value: 
+      objectReference: {fileID: 369613610}
+    - target: {fileID: 6031618774152429389, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
       propertyPath: _wallet
       value: 
       objectReference: {fileID: 1325140773}
@@ -1304,7 +1308,7 @@ PrefabInstance:
     - target: {fileID: 4655538021098524664, guid: a1a4e8d7480fd1542922457eba6a005f, type: 3}
       propertyPath: _onSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1912175137}
+      objectReference: {fileID: 1912175134}
     - target: {fileID: 4655538021098524664, guid: a1a4e8d7480fd1542922457eba6a005f, type: 3}
       propertyPath: _onSelect.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1315,7 +1319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4655538021098524664, guid: a1a4e8d7480fd1542922457eba6a005f, type: 3}
       propertyPath: _onSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GunController, Assembly-CSharp
+      value: GunHolder, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4655538021098524664, guid: a1a4e8d7480fd1542922457eba6a005f, type: 3}
       propertyPath: _onSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -7775,17 +7779,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea3d16092ab082741a34403aff3cb66e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1912175137 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1912175137, guid: 449e23b34046b1143ae5dc92aba8d5a5, type: 3}
-  m_PrefabInstance: {fileID: 1542179560}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68630b87186bf5c44b93e7520290274b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1943440621

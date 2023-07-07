@@ -13,7 +13,7 @@ public class GunController : MonoBehaviour
 
     public event System.Action<Gun> OnSetGun;
 
-    public void SetGun(Gun gun)
+    public void TakeGun(Gun gun)
     {
         if (_gun)
             _gun.gameObject.SetActive(false);

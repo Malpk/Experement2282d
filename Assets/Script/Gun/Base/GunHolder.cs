@@ -56,7 +56,7 @@ public class GunHolder : MonoBehaviour
     public void SetGun(Gun gun)
     {
         _chooseGun = gun;
-        _controller.SetGun(gun);
+        _controller.TakeGun(gun);
     }
 
     public void SwitchGunMenu(bool input)
