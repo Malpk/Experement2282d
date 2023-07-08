@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Reference")]
+    [SerializeField] private Rigidbody2D _rigidBody;
     [SerializeField] private EnemyDetect _detect;
     [SerializeField] private EnemyBrain _brain;
     [SerializeField] private EnemyHealth _health;
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour
         IsDead = false;
         _health.Reset();
         _brain.Reset();
+        _rigidBody.bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void Update()
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
+        _rigidBody.bodyType = RigidbodyType2D.Static;
         IsDead = true;
         OnDead?.Invoke(this);
     }

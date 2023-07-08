@@ -7,6 +7,7 @@ public class GunHolder : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private GunMenu _gunMenu;
     [SerializeField] private Transform _gunHolder;
+    [SerializeField] private PlayerSound _sound;
     [SerializeField] private GunController _controller;
 
     private Gun _chooseGun;
@@ -35,11 +36,7 @@ public class GunHolder : MonoBehaviour
     {
         if (collision.TryGetComponent(out Ammo ammo))
         {
-            if (TryGetGun(ammo.Gun, out Gun gun))
-            {
-                gun.AddAmmo(ammo.CountAmmo);
-                ammo.Delete();
-            }
+            AddAmmo(ammo);
         }
     }
 
@@ -71,6 +68,21 @@ public class GunHolder : MonoBehaviour
         _controller.TakeGun(gun);
     }
 
+    public bool IsContain(int id)
+    {
+        foreach (var slot in _slots)
+        {
+            if (slot.Gun)
+            {
+                if (slot.Gun.ID == id)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public void SwitchGunMenu(bool input)
     {
         if (input)
@@ -87,6 +99,18 @@ public class GunHolder : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    private void AddAmmo(Ammo ammo)
+    {
+        if (TryGetGun(ammo.Gun, out Gun gun))
+        {
+            if (gun.AddAmmo(ammo.CountAmmo))
+            {
+                _sound.Pick();
+                ammo.Delete();
+            }
+        }
     }
 
     private bool TryGetGun(GunType type,out Gun gun)

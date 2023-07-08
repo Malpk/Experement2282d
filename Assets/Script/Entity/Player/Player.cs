@@ -1,11 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour, IDamage
 {
     [SerializeField] private int _height = 5;
     [Header("SelfReference")]
+    [SerializeField] private Rigidbody2D _rigidBody2d;
+    [SerializeField] private DamageScreen _screen;
     [SerializeField] private EntityAnimator _animator;
     [SerializeField] private GameController _controller;
+    [Header("Events")]
+    [SerializeField] private UnityEvent _onDead; 
 
     private float _curretHealth = 0f;
 
@@ -20,6 +25,7 @@ public class Player : MonoBehaviour, IDamage
         _controller.enabled = true;
         _animator.Dead(false);
         IsDead = false;
+        _rigidBody2d.bodyType = RigidbodyType2D.Dynamic;
     }
 
     private void Start()
@@ -32,6 +38,8 @@ public class Player : MonoBehaviour, IDamage
         _controller.enabled = false;
         _animator.Dead();
         IsDead = true;
+        _rigidBody2d.bodyType = RigidbodyType2D.Static;
+        _onDead.Invoke();
     }
 
     public bool TakeDamage(int damage, Transform projectile)
@@ -39,6 +47,7 @@ public class Player : MonoBehaviour, IDamage
         if (_curretHealth > 0)
         {
             _curretHealth = Mathf.Clamp(_curretHealth - damage, 0, _curretHealth);
+            _screen.Hit();
             if (_curretHealth == 0)
                 Kill();
             UpdateHealth();

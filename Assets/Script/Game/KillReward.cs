@@ -5,11 +5,11 @@ using UnityEngine;
 public class KillReward : MonoBehaviour
 {
     [SerializeField] private Vector2Int _reward;
+    [Header("SceneReference")]
+    [SerializeField] private Wallet _wallet;
     [Header("Event")]
     [SerializeField] private UnityEvent<int> _onCangeCount;
     [SerializeField] private UnityEvent<Vector2> _onKill;
-    [Header("SceneReference")]
-    [SerializeField] private Wallet _wallet;
 
     private List<Enemy> _activeEnemy = new List<Enemy>();
 

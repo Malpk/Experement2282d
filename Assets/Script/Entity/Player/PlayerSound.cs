@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerSound : MonoBehaviour
 {
     [SerializeField] private AudioClip _steap;
+    [SerializeField] private AudioClip _pick;
     [Header("Reference")]
     [SerializeField] private AudioSource _source;
 
@@ -17,7 +18,12 @@ public class PlayerSound : MonoBehaviour
             _coroutine = StartCoroutine(WaitCompliteSteap());
         }
     }
-    
+
+    public void Pick()
+    {
+        _source.PlayOneShot(_pick);
+    }
+
     private IEnumerator WaitCompliteSteap()
     {
         yield return new WaitForSeconds(_steap.length / 2);

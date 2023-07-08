@@ -14,6 +14,6 @@ public class DeadMenu : UIMenu
 
     public void ExitToMain()
     {
-        
+        _game.ExitToMain();
     }
 }

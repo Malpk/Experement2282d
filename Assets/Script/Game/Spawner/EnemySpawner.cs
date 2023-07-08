@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _enemyPool.Reset();
         _clener.Clear();
+        _reward.Reset();
     }
 
     private void OnValidate()

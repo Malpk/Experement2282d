@@ -69,13 +69,12 @@ public class Gun : DataItem
         if (_magazine.AddAmmo(ammo))
         {
             UpdateGun();
-            _sound.Pick();
             return true;
         }
         return false;
     }
 
-    private void UpdateGun()
+    public void UpdateGun()
     {
         OnUpdateMagazine?.Invoke(_magazine.CurrteMagazine, _magazine.CurretAmmo);
     }

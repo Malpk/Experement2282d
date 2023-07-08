@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour, IDamage
     [Header("Reference")]
     [SerializeField] private Enemy _enemy;
     [SerializeField] private DecalBody _decal;
+    [SerializeField] private EnemySound _sound;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private EntityAnimator _animator;
 
@@ -38,6 +39,7 @@ public class EnemyHealth : MonoBehaviour, IDamage
             if (_currethelth == 0)
                 Kill();
             _decal.CreateDecal(hit);
+            _sound.Hit();
             return true;
         }
         else

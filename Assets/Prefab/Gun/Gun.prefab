@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shoot: {fileID: 8300000, guid: 2d14da74d2492af42b26319be0eb7851, type: 3}
   _reload: {fileID: 8300000, guid: 492192ccf43949546a6703f7b4ba4d4a, type: 3}
-  _pick: {fileID: 8300000, guid: 2df679eb5d8a2514d83e1c0f970a6d11, type: 3}
   _emptyMagazine: {fileID: 8300000, guid: a99323d7193df6e4caea3c5710d869f0, type: 3}
   _source: {fileID: 2252609778769444593}
 --- !u!82 &2252609778769444593
@@ -389,7 +388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
-  _price: 50
+  _price: 500
   _name: "\u041C\u0430\u043A\u0430\u0440\u043E\u0432"
   _icon: {fileID: 21300000, guid: 7f2aa785f19853a408ee819c9ed9e0fb, type: 3}
   _gunType: 0

@@ -21,6 +21,7 @@ public class GunController : MonoBehaviour
         GrabGun(gun);
         _gun = gun;
         OnSetGun?.Invoke(gun);
+        gun.UpdateGun();
         _holderDirection.SetGun(gun);
     }
 

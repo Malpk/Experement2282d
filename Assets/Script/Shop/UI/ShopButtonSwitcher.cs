@@ -19,6 +19,11 @@ public class ShopButtonSwitcher : MonoBehaviour
         Show(_choose.gameObject);
     }
 
+    public void ShowPutTable()
+    {
+        Show(_activeChoose);
+    }
+
     private void Show(GameObject button)
     {
         if (_curretActive != button)

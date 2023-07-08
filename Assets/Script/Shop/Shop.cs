@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
     private ShopItem _select;
 
     private List<DataItem> _buyList = new List<DataItem>();
+    private List<DataItem> _chooseItem = new List<DataItem>();
 
     private void Awake()
     {

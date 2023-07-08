@@ -5,6 +5,7 @@ public class ShopUI : UIMenu
 {
     [Header("Reference")]
     [SerializeField] private GoodsUI _goodsPrefab;
+    [SerializeField] private GunHolder _holder;
     [SerializeField] private Transform _contentHolder;
     [SerializeField] private ShopButtonSwitcher _switcher;
 
@@ -60,11 +61,14 @@ public class ShopUI : UIMenu
         {
             _switcher.ShowBuyButton();
         }
+        else if(_holder.IsContain(select.Content.Content.ID))
+        {
+            _switcher.ShowPutTable();
+        }
         else
         {
             _switcher.ShowChooseButton();
         }
-
     }
 
 }

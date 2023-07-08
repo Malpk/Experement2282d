@@ -11,6 +11,8 @@ public class ReplaceGunMenu : UIMenu
 
     private SlotUI _replaceSlot;
 
+    public event System.Action<DataItem> OnRemove;
+
     public void Awake()
     {
         var slots = _holder.Slots;

@@ -23,6 +23,7 @@ public class GameMode : MonoBehaviour
 
     public void Play()
     {
+        _sapwner.Reset();
         if (_corotine == null)
             _corotine = StartCoroutine(ModeUpdate());
     }
