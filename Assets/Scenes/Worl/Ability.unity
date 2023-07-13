@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _content
       value: 
-      objectReference: {fileID: 11400000, guid: 99a3fe04c9bcb3946a3a652e282615a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 187a48764ab383040b8aebfb3e3ec567, type: 2}
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _edgs.Array.size
       value: 1
@@ -605,6 +605,14 @@ PrefabInstance:
       propertyPath: _parents.Array.data[0]
       value: 
       objectReference: {fileID: 1780112378}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 84d22c1740f502b45960606b3df53d04, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot_right
@@ -1052,7 +1060,7 @@ PrefabInstance:
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _content
       value: 
-      objectReference: {fileID: 11400000, guid: 0b50966bf82c32b488ac53f6a0ef1e79, type: 2}
+      objectReference: {fileID: 11400000, guid: 8a594faaf0cdeba47ba58a06c97d6624, type: 2}
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _edgs.Array.size
       value: 1
@@ -1081,6 +1089,14 @@ PrefabInstance:
       propertyPath: _parents.Array.data[0]
       value: 
       objectReference: {fileID: 1746408316}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 243e684e61b97524083a8585f5b95f75, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot_left
@@ -1345,6 +1361,14 @@ PrefabInstance:
       propertyPath: _parents.Array.data[0]
       value: 
       objectReference: {fileID: 30520120772715754}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 25b696c13e85907478229da86983e9d6, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot_right
@@ -2166,6 +2190,14 @@ PrefabInstance:
       propertyPath: _parents.Array.data[0]
       value: 
       objectReference: {fileID: 30520120772715754}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 25b696c13e85907478229da86983e9d6, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot_left
@@ -2459,6 +2491,18 @@ PrefabInstance:
       propertyPath: _parents.Array.data[1]
       value: 
       objectReference: {fileID: 734017944}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 187a48764ab383040b8aebfb3e3ec567, type: 2}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a594faaf0cdeba47ba58a06c97d6624, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot
@@ -2694,6 +2738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1393051617}
+  - component: {fileID: 1393051618}
   - component: {fileID: 1393051616}
   - component: {fileID: 1393051615}
   - component: {fileID: 1393051614}
@@ -2789,6 +2834,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1393051618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393051613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7cc44f02622814683b5f41f0f82924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _onShow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1553910252}
+        m_TargetAssemblyTypeName: SkillTreeUI, Assembly-CSharp
+        m_MethodName: UpdateSlots
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1450087014 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7505102562653064267, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
@@ -3355,7 +3431,7 @@ PrefabInstance:
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _content
       value: 
-      objectReference: {fileID: 11400000, guid: 0b50966bf82c32b488ac53f6a0ef1e79, type: 2}
+      objectReference: {fileID: 11400000, guid: 243e684e61b97524083a8585f5b95f75, type: 2}
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _edgs.Array.size
       value: 1
@@ -3380,6 +3456,14 @@ PrefabInstance:
       propertyPath: _parents.Array.data[0]
       value: 
       objectReference: {fileID: 1234407055}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b50966bf82c32b488ac53f6a0ef1e79, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot_left
@@ -3619,7 +3703,7 @@ PrefabInstance:
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _content
       value: 
-      objectReference: {fileID: 11400000, guid: 99a3fe04c9bcb3946a3a652e282615a6, type: 2}
+      objectReference: {fileID: 11400000, guid: 84d22c1740f502b45960606b3df53d04, type: 2}
     - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: _edgs.Array.size
       value: 1
@@ -3644,6 +3728,14 @@ PrefabInstance:
       propertyPath: _parents.Array.data[0]
       value: 
       objectReference: {fileID: 851862810}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925461671474378958, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
+      propertyPath: _requredSkill.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 99a3fe04c9bcb3946a3a652e282615a6, type: 2}
     - target: {fileID: 3939329529671383885, guid: 57bd983bbef217d4a835ac3fbe93c0d0, type: 3}
       propertyPath: m_Name
       value: SkillSlot_right

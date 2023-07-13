@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdf9d346f57b87f44b050a12fef63cd7, type: 3}
-  m_Name: HealhtSkillLVL1
+  m_Name: HealhtSkillLVL2
   m_EditorClassIdentifier: 
-  _key: 1
-  _price: 3000
+  _key: 2
+  _price: 5000
   _name: "\u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u043F\u0440\u043E\u0447\u043D\u043E\u0441\u0442\u044C
-    1"
+    2"
   _desciption: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0437\u0434\u043E\u0440\u043E\u044C\u0432\u0435 \u043D\u0430 20 \u0435\u0434"
+    \u0437\u0434\u043E\u0440\u043E\u044C\u0432\u0435 \u043D\u0430 40 \u0435\u0434"
   _icon: {fileID: 0}

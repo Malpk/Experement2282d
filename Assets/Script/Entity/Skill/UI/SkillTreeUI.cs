@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SkillTreeUI : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SkillTreeUI : MonoBehaviour
     [SerializeField] private ApplyDisplay _applyDisplay;
 
     private SkillSlot _selectSlot;
+    private List<SkillData> _openSkill = new List<SkillData>();
 
     public event System.Action<SkillData> OnActivateSkill;
 
@@ -18,7 +20,7 @@ public class SkillTreeUI : MonoBehaviour
         _applyDisplay.OnApply += Activate;
         foreach (var slot in _slots)
         {
-            slot.OnChoose += Choose;
+            slot.OnActivate += Choose;
         }
     }
 
@@ -27,16 +29,13 @@ public class SkillTreeUI : MonoBehaviour
         _applyDisplay.OnApply += Activate;
         foreach (var slot in _slots)
         {
-            slot.OnChoose -= Choose;
+            slot.OnActivate += Choose;
         }
     }
 
-    public void FiltrePrice()
+    private void Start()
     {
-        foreach (var slot in _slots)
-        {
-
-        }
+        UpdateSlots();
     }
 
     public void Choose(SkillSlot slot)
@@ -48,6 +47,48 @@ public class SkillTreeUI : MonoBehaviour
     private void Activate()
     {
         _selectSlot.Activate();
+        _playerWallet.TryGiveMoney(_selectSlot.Content.Price);
+        _openSkill.Add(_selectSlot.Content);
+        UpdateSlots();
         OnActivateSkill?.Invoke(_selectSlot.Content);
     }
+
+    public void UpdateSlots()
+    {
+        foreach (var slot in _slots)
+        {
+            if (!slot.IsActive)
+            {
+                OpenSlot(slot);
+            }
+        }
+    }
+
+    private bool OpenSlot(SkillSlot slot)
+    {
+        if (_playerWallet.Money >= slot.Content.Price)
+        {
+            if (CheakRequiridSkills(slot.RequiredSkills))
+            {
+                slot.Open();
+                return true;
+            }
+        }
+        slot.Close();
+        return false;
+    }
+
+    private bool CheakRequiridSkills(SkillData[] skills)
+    {
+        if (skills != null)
+        {
+            foreach (var skill in skills)
+            {
+                if (!_openSkill.Contains(skill))
+                    return false;
+            }
+        }
+        return true;
+    }
+
 }

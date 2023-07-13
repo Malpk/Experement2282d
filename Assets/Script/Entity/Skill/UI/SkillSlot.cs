@@ -5,20 +5,18 @@ public class SkillSlot : MonoBehaviour
 {
     [SerializeField] private bool _awakeOnActive;
     [SerializeField] private SkillData _content;
+    [SerializeField] private SkillData[] _requredSkill;
     [Header("SelfReference")]
     [SerializeField] private SkillPoint _point;
     [SerializeField] private TreePoint _treePoint;
     [SerializeField] private TextMeshProUGUI _text;
 
-    public event System.Action<SkillSlot> OnChoose;
+    public event System.Action<SkillSlot> OnActivate;
 
+    public bool IsActive { get; private set; } = false;
     public SkillData Content => _content;
-
-    private void Awake()
-    {
-        SetMode(_awakeOnActive);
-    }
-
+    public SkillData[] RequiredSkills => _requredSkill;
+ 
     private void OnValidate()
     {
         _point.OnClik += ChooseSlot;
@@ -40,18 +38,24 @@ public class SkillSlot : MonoBehaviour
 
     public void Activate()
     {
+        IsActive = true;
         _point.Activate();
         _treePoint.Activate();
     }
 
-    public void SetMode(bool mode)
+    public void Open()
     {
-        _point.SetMode(mode);
+        _point.SetMode(true);
+    }
+
+    public void Close()
+    {
+        _point.SetMode(false);
     }
 
     private void ChooseSlot()
     {
-        OnChoose?.Invoke(this);
+        OnActivate?.Invoke(this);
     }
 
 }
