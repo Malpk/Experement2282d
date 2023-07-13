@@ -12,7 +12,7 @@ public class Wallet : MonoBehaviour
 
     private void OnValidate()
     {
-        _onChangeMoney.Invoke(_money);
+        _onSetMoney.Invoke(_money);
     }
 
     public void SetMoney(int money)

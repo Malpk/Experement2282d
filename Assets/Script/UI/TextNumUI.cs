@@ -9,7 +9,6 @@ public class TextNumUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
 
     private float _curretValue = 0;
-    private float _progress = 0f;
 
     private Coroutine _corotine;
 

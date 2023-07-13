@@ -144,6 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2138235670483782877}
+  - component: {fileID: 692229941691169505}
   - component: {fileID: 6681871091379271050}
   - component: {fileID: 9050435936856639298}
   m_Layer: 5
@@ -174,6 +175,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0774765, y: 95}
   m_SizeDelta: {x: 68.08, y: 64.88}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &692229941691169505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343736457041172112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b080ee7a7f4b237418af8bf77120170a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 6281883173835142015}
+  _cell: {fileID: 9050435936856639298}
+  _animator: {fileID: 3577737657589373712}
 --- !u!222 &6681871091379271050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -195,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  m_Color: {r: 0.2627451, g: 0.2627451, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -298,6 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7328853855030463000}
   - component: {fileID: 2925461671474378958}
+  - component: {fileID: 7505102562653064267}
   - component: {fileID: 3577737657589373712}
   m_Layer: 5
   m_Name: SkillSlot
@@ -340,10 +357,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b972cc16da90b4887ef15f305a6632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _awakeOnActive: 0
   _content: {fileID: 0}
-  _icon: {fileID: 6281883173835142015}
-  _animator: {fileID: 3577737657589373712}
+  _point: {fileID: 692229941691169505}
+  _treePoint: {fileID: 7505102562653064267}
   _text: {fileID: 1049931726}
+--- !u!114 &7505102562653064267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939329529671383885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b04524e804f4c14aaefb4c4a83e6ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isReady: 0
+  _edgs: []
+  _parents: []
+  _onChangeMode:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2925461671474378958}
+        m_TargetAssemblyTypeName: SkillSlot, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &3577737657589373712
 Animator:
   serializedVersion: 5

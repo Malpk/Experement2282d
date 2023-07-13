@@ -1,54 +1,57 @@
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class SkillSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class SkillSlot : MonoBehaviour
 {
+    [SerializeField] private bool _awakeOnActive;
     [SerializeField] private SkillData _content;
-    [Header("Reference")]
-    [SerializeField] private Image _icon;
-    [SerializeField] private Animator _animator;
+    [Header("SelfReference")]
+    [SerializeField] private SkillPoint _point;
+    [SerializeField] private TreePoint _treePoint;
     [SerializeField] private TextMeshProUGUI _text;
 
-    private bool _isActive;
-
-    public event System.Action<SkillSlot> OnClik;
+    public event System.Action<SkillSlot> OnChoose;
 
     public SkillData Content => _content;
 
     private void Awake()
     {
-        _icon.gameObject.SetActive(false);
+        SetMode(_awakeOnActive);
     }
 
     private void OnValidate()
     {
+        _point.OnClik += ChooseSlot;
         if (_content)
         {
             _text?.SetText(_content.Name);
         }
     }
 
+    private void OnEnable()
+    {
+        _point.OnClik += ChooseSlot;
+    }
+
+    private void OnDisable()
+    {
+        _point.OnClik -= ChooseSlot;
+    }
+
     public void Activate()
     {
-        _icon.gameObject.SetActive(true);
-        _isActive = true;
+        _point.Activate();
+        _treePoint.Activate();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void SetMode(bool mode)
     {
-        _animator.SetBool("select", true);
+        _point.SetMode(mode);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void ChooseSlot()
     {
-        if (!_isActive)
-            OnClik?.Invoke(this);
+        OnChoose?.Invoke(this);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _animator.SetBool("select", false);
-    }
 }

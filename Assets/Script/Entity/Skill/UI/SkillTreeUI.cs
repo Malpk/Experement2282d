@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class SkillTreeUI : MonoBehaviour
 {
+    [SerializeField] private SkillSlot[] _slots;
+    [Header("Reference")]
+    [SerializeField] private Wallet _playerWallet;
     [SerializeField] private ApplyDisplay _applyDisplay;
-    [SerializeField] private SkillSlot[] _slot;
 
     private SkillSlot _selectSlot;
 
@@ -14,18 +16,26 @@ public class SkillTreeUI : MonoBehaviour
     private void OnEnable()
     {
         _applyDisplay.OnApply += Activate;
-        foreach (var slot in _slot)
+        foreach (var slot in _slots)
         {
-            slot.OnClik += Choose;
+            slot.OnChoose += Choose;
         }
     }
 
     private void OnDisable()
     {
         _applyDisplay.OnApply += Activate;
-        foreach (var slot in _slot)
+        foreach (var slot in _slots)
         {
-            slot.OnClik -= Choose;
+            slot.OnChoose -= Choose;
+        }
+    }
+
+    public void FiltrePrice()
+    {
+        foreach (var slot in _slots)
+        {
+
         }
     }
 
