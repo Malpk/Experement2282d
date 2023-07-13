@@ -14,11 +14,6 @@ public class SkillPoint : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
 
     public event System.Action OnClik;
 
-    private void Awake()
-    {
-        _icon.gameObject.SetActive(false);
-    }
-
     public void SetMode(bool mode)
     {
         _mode = mode;

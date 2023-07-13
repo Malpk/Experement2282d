@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private GunController _gun;
     [SerializeField] private PlayerSound _sound;
     [SerializeField] private PlayerMovement _movement;
+    [SerializeField] private UIMenu _skillMenu;
 
     private bool _block;
 
@@ -18,17 +19,22 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        if (!_block)
+        if (Input.GetKeyDown(KeyCode.L))
+            _skillMenu.SwitchState();
+        if (!_skillMenu.IsShow)
         {
-            _gun.Reload(Input.GetKeyDown(KeyCode.R));
-            _gun.Shoot(Input.GetKey(KeyCode.Mouse0));
+            if (!_block)
+            {
+                _gun.Reload(Input.GetKeyDown(KeyCode.R));
+                _gun.Shoot(Input.GetKey(KeyCode.Mouse0));
+            }
+            _interactive.Invoke(Input.GetKeyDown(KeyCode.E));
         }
-        _interactive.Invoke(Input.GetKeyDown(KeyCode.E));
     }
 
     private void FixedUpdate()
     {
-        if (!_block)
+        if (!_block && !_skillMenu.IsShow)
         {
             var x = Input.GetAxis("Horizontal");
             var y = Input.GetAxis("Vertical");

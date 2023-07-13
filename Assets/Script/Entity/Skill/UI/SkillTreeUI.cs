@@ -6,6 +6,7 @@ public class SkillTreeUI : MonoBehaviour
     [SerializeField] private SkillSlot[] _slots;
     [Header("Reference")]
     [SerializeField] private Wallet _playerWallet;
+    [SerializeField] private BodySkillSet _skillSet;
     [SerializeField] private ApplyDisplay _applyDisplay;
 
     private SkillSlot _selectSlot;
@@ -38,19 +39,29 @@ public class SkillTreeUI : MonoBehaviour
         UpdateSlots();
     }
 
+    public int[] Save()
+    {
+        var keys = new List<int>();
+        foreach (var slot in _slots)
+        {
+            if(slot.IsActive)
+                keys.Add(slot.Content.SkillKey);
+        }
+        return keys.ToArray();
+    }
+
+    public void Load(int[] keys)
+    {
+        foreach (var key in keys)
+        {
+            LoadSlot(key);
+        }
+    }
+
     public void Choose(SkillSlot slot)
     {
         _selectSlot = slot;
         _applyDisplay.Show();
-    }
-
-    private void Activate()
-    {
-        _selectSlot.Activate();
-        _playerWallet.TryGiveMoney(_selectSlot.Content.Price);
-        _openSkill.Add(_selectSlot.Content);
-        UpdateSlots();
-        OnActivateSkill?.Invoke(_selectSlot.Content);
     }
 
     public void UpdateSlots()
@@ -62,6 +73,16 @@ public class SkillTreeUI : MonoBehaviour
                 OpenSlot(slot);
             }
         }
+    }
+
+    private void Activate()
+    {
+        _selectSlot.Activate();
+        _skillSet.AddSkill(_selectSlot.Content.SkillKey);
+        _playerWallet.TryGiveMoney(_selectSlot.Content.Price);
+        _openSkill.Add(_selectSlot.Content);
+        UpdateSlots();
+        OnActivateSkill?.Invoke(_selectSlot.Content);
     }
 
     private bool OpenSlot(SkillSlot slot)
@@ -89,6 +110,20 @@ public class SkillTreeUI : MonoBehaviour
             }
         }
         return true;
+    }
+
+    private void LoadSlot(int key)
+    {
+        foreach (var slot in _slots)
+        {
+            if (slot.Content.SkillKey == key)
+            {
+                slot.Open();
+                slot.Activate();
+                _skillSet.AddSkill(slot.Content.SkillKey);
+                return;
+            }
+        }
     }
 
 }

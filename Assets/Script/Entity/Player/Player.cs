@@ -5,6 +5,7 @@ public class Player : MonoBehaviour, IDamage
 {
     [SerializeField] private int _height = 5;
     [Header("SelfReference")]
+    [SerializeField] private BodySkillSet _bodySetl;
     [SerializeField] private Rigidbody2D _rigidBody2d;
     [SerializeField] private DamageScreen _screen;
     [SerializeField] private EntityAnimator _animator;
@@ -18,9 +19,11 @@ public class Player : MonoBehaviour, IDamage
 
     public bool IsDead { get; private set; }
 
+    private int Health => _height + _bodySetl.Health;
+
     public void Reset()
     {
-        _curretHealth = _height;
+        _curretHealth = Health;
         enabled = true;
         _controller.enabled = true;
         _animator.Dead(false);

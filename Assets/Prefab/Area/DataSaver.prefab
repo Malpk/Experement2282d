@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6031618774152429390}
   - component: {fileID: 6031618774152429389}
+  - component: {fileID: 1236318603}
+  - component: {fileID: 1236318605}
   m_Layer: 0
   m_Name: DataSaver
   m_TagString: Untagged
@@ -44,5 +46,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff2e4b940b71f643a2eb4d9b3664c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saveKey: keyf
+  _saveKey: keyfsss
+  _shop: {fileID: 0}
   _wallet: {fileID: 0}
+  _skills: {fileID: 1236318605}
+  _gunHolder: {fileID: 0}
+  _data: {fileID: 1236318603}
+--- !u!114 &1236318603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031618774152429388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb66d8a380b03c4a9ee9d7d7d5b0b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 3365556552644942589, guid: 623cb170ba04531439c8d44f7739bbc4, type: 3}
+  - {fileID: 3703313142852593371, guid: 6ecdbc31b3023eb4bb43dfe479b5efc2, type: 3}
+--- !u!114 &1236318605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031618774152429388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdabd0cc6aa8a934e8abb3232e610c67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bodyTree: {fileID: 0}

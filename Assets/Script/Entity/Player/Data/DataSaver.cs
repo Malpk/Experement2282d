@@ -7,6 +7,7 @@ public class DataSaver : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private Shop _shop;
     [SerializeField] private Wallet _wallet;
+    [SerializeField] private SkillSaver _skills;
     [SerializeField] private GunHolder _gunHolder;
     [SerializeField] private DataHolder _data;
 
@@ -26,6 +27,7 @@ public class DataSaver : MonoBehaviour
     {
         var data = new PlayerData();
         data.Money = _wallet.Money;
+        data.SkillData = _skills.Save();
         data.GunHolderData = _gunHolder.Save();
         data.ShopData = _shop ? _shop.Save() : _loadData.ShopData;
         PlayerPrefs.SetString(_saveKey, JsonUtility.ToJson(data));
@@ -38,6 +40,10 @@ public class DataSaver : MonoBehaviour
             _loadData = JsonUtility.FromJson<PlayerData>(
                 PlayerPrefs.GetString(_saveKey));
             _wallet.SetMoney(_loadData.Money);
+            if (_loadData.SkillData != null)
+            {
+                _skills.Load(_loadData.SkillData);
+            }
             LoadGun(_loadData.GunHolderData);
             LoadShop(_loadData.ShopData);
         }

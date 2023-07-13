@@ -4,7 +4,7 @@ public class BodySkillSet : PlayerSkills
 {
     [SerializeField] private int _health = 0;
     [SerializeField] private int _heal = 0;
-    [SerializeField] private float _speedMovement = 1;
+    [SerializeField] private float _speedMovement = 0;
     [SerializeField] private BodySkill[] _skills;
 
     public int Heal => _heal;
