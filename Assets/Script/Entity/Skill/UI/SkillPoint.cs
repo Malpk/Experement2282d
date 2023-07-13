@@ -7,8 +7,10 @@ public class SkillPoint : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
     [SerializeField] private Image _icon;
     [SerializeField] private Image _cell;
     [SerializeField] private Animator _animator;
+    [SerializeField] private PopSkillInfo _pop;
 
-    private bool _isActive; 
+    private bool _isActive;
+    private bool _mode;
 
     public event System.Action OnClik;
 
@@ -19,7 +21,7 @@ public class SkillPoint : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
 
     public void SetMode(bool mode)
     {
-        _cell.raycastTarget = mode;
+        _mode = mode;
         _animator.SetBool("lock", !mode);
     }
 
@@ -37,18 +39,22 @@ public class SkillPoint : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(!_isActive)
+        _pop.SetMode(true);
+        if (!_isActive && _mode)
+        {
             _animator.SetBool("select", true);
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!_isActive)
+        if (!_isActive && _mode)
             OnClik?.Invoke();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        _pop.SetMode(false);
         _animator.SetBool("select", false);
     }
 

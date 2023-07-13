@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0b45b17fc5cc1248a09cc45bb33c809, type: 3}
-  m_Name: BodyWaySkill
+  m_Name: SpeedSkill_1
   m_EditorClassIdentifier: 
-  _health: 2
+  _health: 0
   _heal: 0
   _speedMovement: 0.2
-  _data: {fileID: 11400000, guid: 25b696c13e85907478229da86983e9d6, type: 2}
+  _data: {fileID: 11400000, guid: 0b50966bf82c32b488ac53f6a0ef1e79, type: 2}

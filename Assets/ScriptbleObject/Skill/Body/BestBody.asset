@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0b45b17fc5cc1248a09cc45bb33c809, type: 3}
-  m_Name: HealthSkill
+  m_Name: BestBody
   m_EditorClassIdentifier: 
-  _health: 1
+  _health: 80
   _heal: 0
-  _speedMovement: 0
-  _data: {fileID: 11400000, guid: 99a3fe04c9bcb3946a3a652e282615a6, type: 2}
+  _speedMovement: 1
+  _data: {fileID: 11400000, guid: 25b696c13e85907478229da86983e9d6, type: 2}

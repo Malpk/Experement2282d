@@ -7,8 +7,8 @@ public class SkillSlot : MonoBehaviour
     [SerializeField] private SkillData _content;
     [SerializeField] private SkillData[] _requredSkill;
     [Header("SelfReference")]
-    [SerializeField] private SkillPoint _point;
     [SerializeField] private TreePoint _treePoint;
+    [SerializeField] private SkillPoint _point;
     [SerializeField] private TextMeshProUGUI _text;
 
     public event System.Action<SkillSlot> OnActivate;
