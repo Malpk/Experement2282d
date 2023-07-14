@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
+    [SerializeField] private GunMenu _gunMenu;
     [Header("Hand")]
     [SerializeField] private Transform _rightHand;
     [SerializeField] private Transform _leftHand;
     [Header("Reference")]
     [SerializeField] private Gun _gun;
     [SerializeField] private GunDirection _holderDirection;
-
-    private bool _isBlock;
 
     public event System.Action<Gun> OnSetGun;
 
@@ -27,14 +26,17 @@ public class GunController : MonoBehaviour
 
     public bool Shoot(bool input)
     {
-        input = input && !_isBlock;
-        return _gun.Shoot(input);
+        if (!_gunMenu.IsShow)
+        {
+            return _gun.Shoot(input);
+        }
+        return false;
     }
 
     public void Reload(bool input)
     {
-        input = input && !_isBlock;
-        _gun.Reload(input);
+        if(!_gunMenu.IsShow)
+            _gun.Reload(input);
     }
 
     public void DropGun()

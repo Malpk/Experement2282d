@@ -8,6 +8,7 @@ public class ShopUI : UIMenu
     [SerializeField] private GunHolder _holder;
     [SerializeField] private Transform _contentHolder;
     [SerializeField] private ShopButtonSwitcher _switcher;
+    [SerializeField] private ReplaceGunMenu _replaceGun;
 
     private GoodsUI _selectGoods;
 
@@ -29,6 +30,12 @@ public class ShopUI : UIMenu
         {
             goods.OnSelect -= Select;
         }
+    }
+    
+    public void AddGun()
+    {
+        _replaceGun.SetReplce(_selectGoods.Content.Content);
+        ShowSubMenu(_replaceGun);
     }
 
     public GoodsUI AddShopItem(ShopItem item)

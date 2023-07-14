@@ -5,7 +5,7 @@ public class GameArea : MonoBehaviour
 {
     [SerializeField] private int _sceneId;
     [Header("Reference")]
-    [SerializeField] private GameController _controller;
+    [SerializeField] private PlayerController _controller;
     [SerializeField] private UIMenu _cheakMenu;
     [SerializeField] private DataSaver _saver;
     [SerializeField] private ExitArea[] _exits;

@@ -5,10 +5,9 @@ public class GunHolder : MonoBehaviour
     [Header("GunSetting")]
     [SerializeField] private GunSlot[] _slots;
     [Header("Reference")]
-    [SerializeField] private GunMenu _gunMenu;
     [SerializeField] private Transform _gunHolder;
     [SerializeField] private PlayerSound _sound;
-    [SerializeField] private GunController _controller;
+    [SerializeField] private GunController _gun;
 
     private Gun _chooseGun;
 
@@ -54,7 +53,7 @@ public class GunHolder : MonoBehaviour
 
     public void Load(Gun[] guns, int selectGun)
     {
-        _controller.DropGun();
+        _gun.DropGun();
         for (int i = 0; i < _slots.Length; i++)
         {
             _slots[i].SetGun(guns[i]);
@@ -65,7 +64,7 @@ public class GunHolder : MonoBehaviour
     public void SetGun(Gun gun)
     {
         _chooseGun = gun;
-        _controller.TakeGun(gun);
+        _gun.TakeGun(gun);
     }
 
     public bool IsContain(int id)
@@ -81,12 +80,6 @@ public class GunHolder : MonoBehaviour
             }
         }
         return false;
-    }
-
-    public void SwitchGunMenu(bool input)
-    {
-        if (input)
-            _gunMenu.SwitchState();
     }
 
     private int GetChooseSlot(Gun gun)

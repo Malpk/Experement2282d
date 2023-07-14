@@ -8,18 +8,21 @@ public class UIMenu : MonoBehaviour
     [SerializeField] private UnityEvent _onShow;
     [SerializeField] private UnityEvent _onHide;
 
+    private UIMenu _subMenu;
+
     public bool IsShow => gameObject.activeSelf;
     public MenuType Type => _type;
 
-    public void SwitchState()
+    public bool SwitchState()
     {
-        if (gameObject.activeSelf)
+        if (!gameObject.activeSelf)
         {
-            Hide();
+            Show();
+            return true;
         }
         else
         {
-            Show();
+            return Hide();
         }
     }
 
@@ -29,10 +32,28 @@ public class UIMenu : MonoBehaviour
         _onShow.Invoke();
     }
 
-    public void Hide()
+    public void ShowSubMenu(UIMenu menu)
     {
-        gameObject.SetActive(false);
-        _onHide.Invoke();
+        if (_subMenu)
+            _subMenu.Hide();
+        _subMenu = menu;
+        _subMenu.Show();
+    }
+
+    public bool Hide()
+    {
+        if (!_subMenu)
+        {
+            gameObject.SetActive(false);
+            _onHide.Invoke();
+            return true;
+        }
+        else
+        {
+            _subMenu.Hide();
+            _subMenu = null;
+            return false;
+        }
     }
 
 }

@@ -6,8 +6,8 @@ public class ReplaceGunMenu : UIMenu
     [Header("CanvasReference")]
     [SerializeField] private SlotUI _prefabSlot;
     [SerializeField] private CellUI _replaceCell;
-    [SerializeField] private ReplaceCell[] _cells;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private ReplaceCell[] _cells;
 
     private SlotUI _replaceSlot;
 
@@ -37,7 +37,8 @@ public class ReplaceGunMenu : UIMenu
         }
         else
         {
-            _replaceCell.SetSlot(CreateSlot(gun, _replaceCell.transform));
+            _replaceSlot = CreateSlot(gun, _replaceCell.transform);
+            _replaceCell.SetSlot(_replaceSlot);
         }
     }
 

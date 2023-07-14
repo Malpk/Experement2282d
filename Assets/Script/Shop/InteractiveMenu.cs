@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class InteractiveMenu : MonoBehaviour, IInteractive
+public class InteractiveMenu : MonoBehaviour, IMenu
 {
     [Header("Reference")]
     [SerializeField] private UIMenu _shopMenu;
     [SerializeField] private GameObject _lable;
 
-    private bool _isBlock = false;
-
-    public bool IsBlock => _isBlock;
+    public UIMenu Menu => _shopMenu;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,15 +23,6 @@ public class InteractiveMenu : MonoBehaviour, IInteractive
         {
             _lable.SetActive(false);
             enabled = false;
-        }
-    }
-
-    public void Interactive(bool input)
-    {
-        if (input)
-        {
-            _shopMenu.SwitchState();
-            _isBlock = _shopMenu.IsShow;
         }
     }
 }

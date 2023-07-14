@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IDamage
     [SerializeField] private Rigidbody2D _rigidBody2d;
     [SerializeField] private DamageScreen _screen;
     [SerializeField] private EntityAnimator _animator;
-    [SerializeField] private GameController _controller;
+    [SerializeField] private PlayerController _controller;
     [Header("Events")]
     [SerializeField] private UnityEvent _onDead; 
 
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour, IDamage
 
     private void UpdateHealth()
     {
-        OnChageHealth?.Invoke(_curretHealth / _height);
+        OnChageHealth?.Invoke(_curretHealth / Health);
     }
 
 }

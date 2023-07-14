@@ -609,6 +609,7 @@ MonoBehaviour:
   - {fileID: 1096477732596470040}
   _playerWallet: {fileID: 0}
   _skillSet: {fileID: 0}
+  _skillMenu: {fileID: 2859270452504623614}
   _applyDisplay: {fileID: 8246298032887909974}
 --- !u!1 &2859270452703132953
 GameObject:

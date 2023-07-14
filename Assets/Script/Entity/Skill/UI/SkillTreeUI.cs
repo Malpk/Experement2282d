@@ -7,6 +7,7 @@ public class SkillTreeUI : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private Wallet _playerWallet;
     [SerializeField] private BodySkillSet _skillSet;
+    [SerializeField] private UIMenu _skillMenu;
     [SerializeField] private ApplyDisplay _applyDisplay;
 
     private SkillSlot _selectSlot;
@@ -61,7 +62,7 @@ public class SkillTreeUI : MonoBehaviour
     public void Choose(SkillSlot slot)
     {
         _selectSlot = slot;
-        _applyDisplay.Show();
+        _skillMenu.ShowSubMenu(_applyDisplay);
     }
 
     public void UpdateSlots()

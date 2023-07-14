@@ -7,7 +7,7 @@ public class StartGame : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private DataSaver _dataSaver;
     [SerializeField] private UIMenu _startMenu;
-    [SerializeField] private GameController _controller;
+    [SerializeField] private PlayerController _controller;
 
     public void LoadLvl()
     {
