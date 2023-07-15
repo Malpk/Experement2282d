@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InterfaceController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     [SerializeField] private UIMenu _skillMenu;
     [SerializeField] private GunMenu _gunMenu;
@@ -13,9 +13,9 @@ public class InterfaceController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_menu == null)
+            if (_menu == null || _gunMenu.IsShow)
             {
-                _gunMenu.SwitchState();
+                SwitchState(_gunMenu, false);
             }
             else
             {
@@ -33,7 +33,13 @@ public class InterfaceController : MonoBehaviour
         _menu = menu;
     }
 
-    private void SwitchState(UIMenu menu)
+    public void SetMode(bool mode)
+    {
+        enabled = mode;
+        _controller.enabled = mode;
+    }
+
+    private void SwitchState(UIMenu menu, bool blockPlayer = true)
     {
         if (menu == _openMenu)
         {
@@ -47,7 +53,7 @@ public class InterfaceController : MonoBehaviour
         {
             _openMenu = menu;
             _openMenu.Show();
-            _controller.enabled = false;
+            _controller.enabled = !blockPlayer;
         }
     }
 

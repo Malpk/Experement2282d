@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff2e4b940b71f643a2eb4d9b3664c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saveKey: keyfsss
+  _saveKey: key5
   _shop: {fileID: 0}
   _wallet: {fileID: 0}
   _skills: {fileID: 1236318605}
@@ -67,6 +67,9 @@ MonoBehaviour:
   _items:
   - {fileID: 3365556552644942589, guid: 623cb170ba04531439c8d44f7739bbc4, type: 3}
   - {fileID: 3703313142852593371, guid: 6ecdbc31b3023eb4bb43dfe479b5efc2, type: 3}
+  - {fileID: 1342157553512801304, guid: 1a26d970a0ba7ec47a7056f286a74d98, type: 3}
+  - {fileID: 2244398289420977149, guid: 8a4e9cfc67499ad4c9ab2ae40a57e0f9, type: 3}
+  - {fileID: 277241477577074025, guid: 738b735cff700124387ba8683df3ef03, type: 3}
 --- !u!114 &1236318605
 MonoBehaviour:
   m_ObjectHideFlags: 0

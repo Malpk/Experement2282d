@@ -1,6 +1,9 @@
 public enum GunType
 {
-    Pistole,
-    AutoGun,
-    ShotGun
+    Makarow,
+    Akm,
+    ShotGun,
+    Bison_2,
+    GSH_18,
+    Bekas_M
 }

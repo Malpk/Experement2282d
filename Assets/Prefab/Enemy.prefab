@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbca6748ab4ec544884f99c239692876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 2
   _enemy: {fileID: 2764229756088465413}
   _decal: {fileID: 493229945}
   _sound: {fileID: 4360513407809731271}

@@ -31,14 +31,13 @@ public class ReplaceGunMenu : UIMenu
 
     public void SetReplce(DataItem gun)
     {
-        if (_replaceSlot)
+        if (_replaceCell.Content)
         {
-            _replaceSlot.SetContent(gun);
+            _replaceCell.Content.SetContent(gun);
         }
         else
         {
-            _replaceSlot = CreateSlot(gun, _replaceCell.transform);
-            _replaceCell.SetSlot(_replaceSlot);
+            _replaceCell.SetSlot(CreateSlot(gun, _replaceCell.transform));
         }
     }
 

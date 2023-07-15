@@ -13,7 +13,7 @@ public class ShootPoint : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
 
     private float _progress = 0f;
-    private float _curretStread = 0f;
+    [SerializeField] private float _curretStread = 0f;
 
     public bool IsReady { get; private set; } = true;
 
@@ -29,7 +29,6 @@ public class ShootPoint : MonoBehaviour
         {
             enabled = false;
             IsReady = true;
-            _curretStread = Mathf.Clamp(_curretStread + _spreadDelta, 0, _spread);
         }
     }
 
@@ -44,11 +43,13 @@ public class ShootPoint : MonoBehaviour
             IsReady = false;
             enabled = true;
             _progress = 0;
+            _curretStread = Mathf.Clamp(_curretStread + _spreadDelta, 0, _spread);
             return true;
         }
         else
         {
-            _curretStread = Mathf.Clamp(_curretStread - _spreadReduceDelta, 0, _curretStread);
+            _curretStread = Mathf.Clamp(_curretStread - _spreadReduceDelta * Time.deltaTime,
+                0, _curretStread);
         }
         return false;
     }

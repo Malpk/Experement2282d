@@ -121,6 +121,7 @@ public class SkillTreeUI : MonoBehaviour
             {
                 slot.Open();
                 slot.Activate();
+                _openSkill.Add(slot.Content);
                 _skillSet.AddSkill(slot.Content.SkillKey);
                 return;
             }

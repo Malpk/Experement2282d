@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 3959155869174429310}
   - component: {fileID: 7087691854522433224}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Makarow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -412,11 +412,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shootDelay: 0.4
   _spread: 4
-  _spreadDelta: 0.2
+  _spreadDelta: 0.5
   _spreadReduceDelta: 0.2
   _spreadDistance: 20
   _projectile: {fileID: 8920628333607270449}
   _shootPoint: {fileID: 1259945458693602030}
+  _curretStread: 0
 --- !u!114 &7087691854522433224
 MonoBehaviour:
   m_ObjectHideFlags: 0

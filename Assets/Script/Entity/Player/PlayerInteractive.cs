@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerInteractive : MonoBehaviour
 {
-    [SerializeField] private InterfaceController _controller;
+    [SerializeField] private GameController _controller;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -10,6 +10,8 @@ public class GunController : MonoBehaviour
     [SerializeField] private Gun _gun;
     [SerializeField] private GunDirection _holderDirection;
 
+    private bool IsBkock => _gunMenu ? _gunMenu.IsShow : false;
+
     public event System.Action<Gun> OnSetGun;
 
     public void TakeGun(Gun gun)
@@ -26,7 +28,7 @@ public class GunController : MonoBehaviour
 
     public bool Shoot(bool input)
     {
-        if (!_gunMenu.IsShow)
+        if (!IsBkock)
         {
             return _gun.Shoot(input);
         }
@@ -35,7 +37,7 @@ public class GunController : MonoBehaviour
 
     public void Reload(bool input)
     {
-        if(!_gunMenu.IsShow)
+        if(!IsBkock)
             _gun.Reload(input);
     }
 

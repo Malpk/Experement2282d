@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec0aa89f455fd34e8521294ebce1bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeActive: 30
+  _timeActive: 120
   _safeTime: 30
   _onTimeUpdate:
     m_PersistentCalls:
@@ -608,6 +608,14 @@ PrefabInstance:
       propertyPath: _gun
       value: 
       objectReference: {fileID: 1026586065}
+    - target: {fileID: 6552939949250085502, guid: ae004d9f16e5b114099b70bf5caa7a63, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6552939949250085502, guid: ae004d9f16e5b114099b70bf5caa7a63, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae004d9f16e5b114099b70bf5caa7a63, type: 3}
 --- !u!114 &353314006 stripped
@@ -3626,6 +3634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CheakExit
       objectReference: {fileID: 0}
+    - target: {fileID: 8030666603518128964, guid: ec5d484d5ae481040949150e391d9c87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8030666603518128965, guid: ec5d484d5ae481040949150e391d9c87, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4617,17 +4629,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ff2e4b940b71f643a2eb4d9b3664c3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1588661195 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1236318603, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
-  m_PrefabInstance: {fileID: 6031618772901540996}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb66d8a380b03c4a9ee9d7d7d5b0b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1614950123 stripped
@@ -17425,16 +17426,12 @@ PrefabInstance:
       value: DataSaver
       objectReference: {fileID: 0}
     - target: {fileID: 6031618774152429389, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
-      propertyPath: _data
-      value: 
-      objectReference: {fileID: 1588661195}
-    - target: {fileID: 6031618774152429389, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
       propertyPath: _wallet
       value: 
       objectReference: {fileID: 1755753199}
     - target: {fileID: 6031618774152429389, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
       propertyPath: _saveKey
-      value: keyfsss3
+      value: key15
       objectReference: {fileID: 0}
     - target: {fileID: 6031618774152429389, guid: ef487d2b1947704418aa64d2b54615ea, type: 3}
       propertyPath: _gunHolder
