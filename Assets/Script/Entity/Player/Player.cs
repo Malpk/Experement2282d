@@ -50,7 +50,7 @@ public class Player : MonoBehaviour, IDamage
         if (_curretHealth > 0)
         {
             _curretHealth = Mathf.Clamp(_curretHealth - damage, 0, _curretHealth);
-            _screen.Hit();
+            _screen?.Hit();
             if (_curretHealth == 0)
                 Kill();
             UpdateHealth();

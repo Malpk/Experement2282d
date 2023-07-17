@@ -8,11 +8,13 @@ public abstract class EnemyState : MonoBehaviour
 
     public StateType Type => _type;
 
-    public abstract void Reset();
+    public abstract void Enter();
 
-    public abstract void UpdateState();
+    public abstract bool UpdateState();
 
-    protected void CompliteState(StateType next)
+    public abstract void Exit();
+
+    protected void Exit(StateType next)
     {
         OnComplite?.Invoke(next);
     }

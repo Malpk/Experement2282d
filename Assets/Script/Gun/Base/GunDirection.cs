@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GunDirection : MonoBehaviour
 {
-    private Gun _gun;
+    [SerializeField] private Gun _gun;
 
     public void SetGun(Gun gun)
     {

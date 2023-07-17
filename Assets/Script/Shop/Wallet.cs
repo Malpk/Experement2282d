@@ -15,6 +15,11 @@ public class Wallet : MonoBehaviour
         _onSetMoney.Invoke(_money);
     }
 
+    private void Start()
+    {
+        _onSetMoney.Invoke(_money);
+    }
+
     public void SetMoney(int money)
     {
         _money = money;

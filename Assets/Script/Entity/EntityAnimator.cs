@@ -17,7 +17,8 @@ public class EntityAnimator : MonoBehaviour
 
     public void Attack()
     {
-        PlayAnimation("attack");
+        _animator.SetBool(_curret, false);
+        _animator.SetTrigger("attack");
     }
 
     public void Dead(bool value = true)

@@ -35,13 +35,16 @@ public class EnemyBrain : MonoBehaviour
 
     public void UpdateState()
     {
-        _curretState.UpdateState();
+        if (_curretState.UpdateState())
+        {
+            
+        }
     }
 
     public void SwitchState(StateType state)
     {
         var nextState = GetState(state);
-        nextState.Reset();
+        nextState.Enter();
         _curretState = nextState;
     }
 

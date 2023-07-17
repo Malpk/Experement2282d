@@ -13,7 +13,7 @@ public class ShootPoint : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
 
     private float _progress = 0f;
-    [SerializeField] private float _curretStread = 0f;
+    private float _curretStread = 0f;
 
     public bool IsReady { get; private set; } = true;
 
