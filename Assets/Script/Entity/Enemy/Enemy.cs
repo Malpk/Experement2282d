@@ -30,17 +30,8 @@ public class Enemy : MonoBehaviour
         //var y = Input.GetAxis("Vertical");
         //Move(new Vector2(x, y));
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        _surfaceNormal = collision.contacts[0].normal;
-        Debug.DrawLine(collision.contacts[0].point, collision.contacts[0].point
-            + collision.contacts[0].normal * _speedMovement, Color.red);
-    }
-
     public void Move(Vector2 move)
     {
-        Debug.DrawLine(_rigidBody.position, _rigidBody.position + move, Color.green);
         _rigidBody.MovePosition(_rigidBody.position +
             move * Time.fixedDeltaTime);
     }

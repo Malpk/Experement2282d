@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368067838}
-  m_LocalRotation: {x: -0, y: -0, z: -0.020527959, w: 0.99978936}
-  m_LocalPosition: {x: 0.016, y: -0.078, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.037083652, w: 0.99931216}
+  m_LocalPosition: {x: -0.06189388, y: -0.025964353, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7699537471131631142}
-  m_RootOrder: 4
+  m_Father: {fileID: 2992825762339154030}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1883425945
 GameObject:
@@ -54,13 +54,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883425945}
-  m_LocalRotation: {x: -0, y: -0, z: -0.020527959, w: 0.99978936}
-  m_LocalPosition: {x: -0.227, y: -0.049, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.037083652, w: 0.99931216}
+  m_LocalPosition: {x: -0.31758785, y: -0.012488516, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7699537471131631142}
-  m_RootOrder: 5
+  m_Father: {fileID: 2992825762339154030}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163348181702441798
 GameObject:
@@ -85,13 +85,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163348181702441798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.617, y: 0.058, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.016562, w: 0.9998629}
+  m_LocalPosition: {x: 0.4807068, y: 0.13415284, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7699537471131631142}
-  m_RootOrder: 2
+  m_Father: {fileID: 2992825762339154030}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1268881962434121139
 GameObject:
@@ -163,10 +163,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2992825762339154033}
   m_LocalRotation: {x: -0, y: -0, z: 0.016562, w: 0.9998629}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35492656, y: 0.35492656, z: 0.3549268}
+  m_LocalPosition: {x: -0, y: -0.02, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 913155182033635016}
+  - {fileID: 368067839}
+  - {fileID: 1883425946}
   m_Father: {fileID: 7699537471131631142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.898}
@@ -211,7 +214,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 12
-  m_Sprite: {fileID: 21300000, guid: 2708d1f515872414cb536820b97ac206, type: 3}
+  m_Sprite: {fileID: 195970181, guid: 3f67afa7d389ac84ea5122d054ee3b4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,7 +256,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7699537471131631142}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1670157814647083263
 MonoBehaviour:
@@ -380,7 +383,7 @@ GameObject:
   - component: {fileID: 488329189701729306}
   - component: {fileID: 7945558071360281110}
   m_Layer: 0
-  m_Name: Ak-47
+  m_Name: AKM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -400,10 +403,7 @@ Transform:
   m_Children:
   - {fileID: 2992825762339154030}
   - {fileID: 4566672809569524505}
-  - {fileID: 913155182033635016}
   - {fileID: 7077548472552711143}
-  - {fileID: 368067839}
-  - {fileID: 1883425946}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -422,11 +422,11 @@ MonoBehaviour:
   _id: 1
   _price: 1500
   _name: "\u0410\u043A-47"
-  _icon: {fileID: 21300000, guid: 99d45756b44cb604eb58409adf182502, type: 3}
+  _icon: {fileID: 21300000, guid: 63707d2d15b2db447927ab5861064e14, type: 3}
   _gunType: 1
   _rightHandPoint: {fileID: 1883425946}
   _leftHandPoint: {fileID: 368067839}
-  _gunIcon: {fileID: 21300000, guid: 99d45756b44cb604eb58409adf182502, type: 3}
+  _gunIcon: {fileID: 21300000, guid: 63707d2d15b2db447927ab5861064e14, type: 3}
   _sound: {fileID: 1670157814647083263}
   _magazine: {fileID: 7945558071360281110}
   _shootPoint: {fileID: 488329189701729306}
