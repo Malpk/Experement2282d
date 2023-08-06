@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private float _speed;
     [SerializeField] private float _timeDestroy;
+    [SerializeField] private LayerMask _layer;
     [Header("Reference")]
     [SerializeField] private PoolItem _poolItem;
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -17,23 +18,13 @@ public class Projectile : MonoBehaviour
         enabled = false;
     }
 
-
     private void FixedUpdate()
     {
         var move = transform.right * _speed * Time.fixedDeltaTime;
         _rigidbody.MovePosition(transform.position + move);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out IDamage target))
-        {
-            if (target.TakeDamage(_damage, transform))
-            {
-                Stop();
-                _poolItem.Delete();
-            }
-        }
+        var hit = Physics2D.Linecast(transform.position, transform.position + move, _layer);
+        if (hit)
+            Attack(hit);
     }
 
     public void Play()
@@ -57,4 +48,15 @@ public class Projectile : MonoBehaviour
         enabled = false;
     }
 
+    private void Attack(RaycastHit2D hit)
+    {
+        if (hit.collider.TryGetComponent(out IDamage target))
+        {
+            if (target.TakeDamage(_damage, hit.point, transform.right))
+            {
+                Stop();
+                _poolItem.Delete();
+            }
+        }
+    }
 }

@@ -45,7 +45,7 @@ public class Player : MonoBehaviour, IDamage
         _onDead.Invoke();
     }
 
-    public bool TakeDamage(int damage, Transform projectile)
+    public bool TakeDamage(int damage, Vector2 hit = default, Vector2 hitDirection = default)
     {
         if (_curretHealth > 0)
         {

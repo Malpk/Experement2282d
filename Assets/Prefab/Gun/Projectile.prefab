@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8284456922819429409}
   - component: {fileID: 6461680176196146143}
   - component: {fileID: 112254000704058072}
-  - component: {fileID: 2927651450600251493}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: Untagged
@@ -51,6 +50,9 @@ MonoBehaviour:
   _damage: 1
   _speed: 40
   _timeDestroy: 5
+  _layer:
+    serializedVersion: 2
+    m_Bits: 321
   _poolItem: {fileID: 6461680176196146143}
   _rigidbody: {fileID: 112254000704058072}
 --- !u!114 &6461680176196146143
@@ -86,32 +88,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &2927651450600251493
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2998592868075029514}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.012213409, y: 0.003053166}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.40339458, y: 0.22435363}
-  m_EdgeRadius: 0
 --- !u!1 &4679907564567782215
 GameObject:
   m_ObjectHideFlags: 0

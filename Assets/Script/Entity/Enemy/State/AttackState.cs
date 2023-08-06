@@ -72,7 +72,7 @@ public class AttackState : EnemyState
         _isAttack = false;
         if (_distanceToTarget < _attackStats.Distance)
         {
-            _detect.Target.TakeDamage(_attackStats.Damage, null);
+            _detect.Target.TakeDamage(_attackStats.Damage,default);
         }
     }
 
