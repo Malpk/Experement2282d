@@ -5,8 +5,6 @@ public class AiEnemy : MonoBehaviour, IDamage
 {
     [Min(1)]
     [SerializeField] private int _health;
-    [Min(1)]
-    [SerializeField] private float _speedMovement;
     [Header("Reference")]
     [SerializeField] private BodyEntity _body;
 
@@ -18,7 +16,6 @@ public class AiEnemy : MonoBehaviour, IDamage
     private void Reset()
     {
         _health = 1;
-        _speedMovement = 1f;
         _body = GetComponent<BodyEntity>();
     }
 
@@ -27,12 +24,14 @@ public class AiEnemy : MonoBehaviour, IDamage
         ResetAi();
     }
 
-    public void Move(Vector2 direction)
+    public bool Move(Vector2 direction)
     {
         if (!_body.IsHit)
         {
-            _body.Move(direction * _speedMovement);
+            _body.Move(direction);
+            return true;
         }
+        return false;
     }
 
     public void ResetAi()

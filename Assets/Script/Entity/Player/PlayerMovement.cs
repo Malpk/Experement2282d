@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public void Move(float x, float y)
     {
         var move = new Vector2(x, y) * SpeedMovement * Time.fixedDeltaTime;
+        _rigidBody.isKinematic = move == Vector2.zero;
         _animator.SetBool("move", move != Vector2.zero);
         _rigidBody.MovePosition(_rigidBody.position + move);
     }

@@ -10,17 +10,19 @@ public class AiTarget : MonoBehaviour
         _target.TakeDamage(danage);
     }
 
-    public bool TryGetTarget(out AttackPoint result)
+    public AttackPoint GetTarget(Vector2 position)
     {
-        result = null;
-        foreach (var point in _points)
+        var point = _points[0];
+        var distance = Vector2.Distance(_points[0].transform.position, position);
+        for (int i = 1; i < _points.Length; i++)
         {
-            if (!point.IsBusy)
+            var newDistance = Vector2.Distance(_points[i].transform.position, position);
+            if (distance > newDistance)
             {
-                result = point;
-                return true;
+                point = _points[i];
+                distance = newDistance;
             }
         }
-        return false;
+        return point;
     }
 }

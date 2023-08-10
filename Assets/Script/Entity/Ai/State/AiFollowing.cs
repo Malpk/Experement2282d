@@ -3,6 +3,7 @@ using UnityEngine;
 public class AiFollowing : AiState
 {
     [SerializeField] private float _attackDistance;
+    [SerializeField] private float _radius;
     [Header("Reference")]
     [SerializeField] private AiEnemy _aiEnemy;
     [SerializeField] private AiTarget _target;
@@ -22,25 +23,16 @@ public class AiFollowing : AiState
     {
         _complite = false;
         _target = target;
-        if (_target.TryGetTarget(out AttackPoint point))
-        {
-            _point = point.transform;
-            point.Enter(_aiEnemy);
-        }
-        else
-        {
-            _point = _target.transform;
-        }
     }
 
     public override bool UpdateState()
     {
+        _point = _target.GetTarget(transform.position).transform;
         var distance = Vector2.Distance(_target.transform.position, _aiEnemy.transform.position);
         Debug.DrawLine(transform.position, _point.position, Color.red);
         if (distance > _attackDistance)
         {
-            var direction = _point.position - _aiEnemy.transform.position;
-            _aiEnemy.Move(direction.normalized);
+            Following();
             return true;
         }
         else
@@ -53,6 +45,12 @@ public class AiFollowing : AiState
     public override void Exit()
     {
 
+    }
+
+    private void Following()
+    {
+        var direction = _point.position - _aiEnemy.transform.position;
+        _aiEnemy.Move(direction.normalized);
     }
 
 }
